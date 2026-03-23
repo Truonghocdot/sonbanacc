@@ -1,0 +1,448 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&family=Outfit:wght@400;600&display=swap");
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+:root {
+    --swiper-theme-color: #ffffff !important;
+    --sky-blue: #00AEEF;
+    --sky-blue-light: #87CEEB;
+    --golden-sun: #FFD700;
+    --golden-hover: #FFA500;
+    --cloud-white: #FFFFFF;
+    --deep-navy: #003366;
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+@theme {
+    /* Font Families */
+    --font-family-sans: "Inter", system-ui, -apple-system, sans-serif;
+    --font-family-display: "Outfit", "Lexend", sans-serif;
+
+    /* Summer Breeze Palette */
+    --color-primary: #FFD700; /* Golden Sun */
+    --color-primary-dark: #FFA500; /* Orange/Gold */
+    --color-primary-light: #FFF9C4; /* Light Yellow */
+    --color-secondary: #00AEEF; /* Sky Blue */
+    
+    /* Summer Backgrounds */
+    --color-bg-dark: #87CEEB; /* Sky Blue Light */
+    --color-bg-card: rgba(255, 255, 255, 0.15); /* Glass Background */
+    --color-bg-surface: rgba(255, 255, 255, 0.2);
+
+    /* Text Colors for Light Background */
+    --color-text-primary: #003366; /* Deep Navy */
+    --color-text-secondary: #004d99;
+    --color-text-muted: #1e40af;
+
+    /* Premium Border Colors */
+    --color-border: rgba(255, 255, 255, 0.3);
+    --color-border-light: rgba(255, 255, 255, 0.5);
+    --color-border-glow: rgba(255, 215, 0, 0.4);
+}
+
+/* Global Styles */
+body {
+    background: linear-gradient(135deg, var(--sky-blue-light) 0%, var(--sky-blue) 100%);
+    background-attachment: fixed;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+    font-family: var(--font-family-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+/* Card Styles - Golden Summer */
+.card-esport {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.25rem;
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-esport::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    pointer-events: none;
+}
+
+.card-esport:hover {
+    box-shadow: 0 15px 45px rgba(0, 51, 102, 0.15);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Summer Button - Golden Glow */
+.btn-esport {
+    background: linear-gradient(135deg, var(--golden-sun), var(--golden-hover));
+    color: var(--deep-navy);
+    font-weight: 800;
+    padding: 0.875rem 1.5rem;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    box-shadow: 0 8px 15px rgba(255, 165, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-esport:hover {
+    box-shadow: 0 12px 25px rgba(255, 165, 0, 0.5);
+    transform: scale(1.05) translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Esport accent backgrounds */
+.bg-esport-darker {
+    background: #020617;
+}
+
+.bg-esport-gradient {
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(34, 197, 94, 0.08),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at bottom left,
+            rgba(255, 255, 255, 0.03),
+            transparent 45%
+        );
+}
+
+/* Clean soft shadows */
+.shadow-soft {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-medium {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Custom Scrollbar - Dark Esport */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border-light);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
+
+/* Simple gentle float animation for decorative elements */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 12s linear infinite;
+}
+
+@keyframes shake-gentle {
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+}
+@keyframes swing {
+    0%,
+    100% {
+        transform: rotate(-10deg);
+        transform-origin: top center;
+    }
+    50% {
+        transform: rotate(10deg);
+        transform-origin: top center;
+    }
+}
+
+.animate-swing {
+    animation: swing 3s ease-in-out infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-marquee {
+    display: inline-block;
+    animation: marquee 12s linear infinite;
+}
+
+@keyframes glow-primary {
+    0%,
+    100% {
+        box-shadow:
+            0 0 5px rgba(34, 197, 94, 0.2),
+            inset 0 0 2px rgba(34, 197, 94, 0.1);
+    }
+    50% {
+        box-shadow:
+            0 0 20px rgba(34, 197, 94, 0.6),
+            inset 0 0 10px rgba(34, 197, 94, 0.3);
+    }
+}
+
+.hover-glow-primary:hover {
+    animation: glow-primary 1.5s ease-in-out infinite;
+    border-color: var(--color-primary) !important;
+}
+
+.nav-link {
+    color: var(--color-text-secondary);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--color-primary) !important;
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Glassmorphism utility */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Neon Text - Golden Glow */
+.text-neon {
+    color: #fff;
+    text-shadow:
+        0 0 10px rgba(255, 215, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Background Elements */
+.sun-glow {
+    position: fixed;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0) 70%);
+    filter: blur(60px);
+    z-index: -1;
+    pointer-events: none;
+    animation: pulse-sun 15s infinite alternate ease-in-out;
+}
+
+@keyframes pulse-sun {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.3); opacity: 1; }
+}
+
+.cloud-element {
+    position: fixed;
+    background: white;
+    filter: blur(40px);
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes drift-right {
+    0% { transform: translateX(-10vw); }
+    100% { transform: translateX(110vw); }
+}
+
+/* Beach Decorations */
+.coconut-tree {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background-image: url('/images/summer/coconut.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 5;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+@media (max-width: 1024px) {
+    .coconut-tree {
+        width: 150px;
+        height: 150px;
+        z-index: 1; /* Ensure they stay behind content on small screens if needed */
+        opacity: 0.6; /* Subtler on mobile */
+    }
+}
+
+.coconut-tree-left {
+    bottom: -80px;
+    left: 20px;
+    transform: rotate(12deg) scaleX(-1);
+    z-index: 10;
+}
+
+.coconut-tree-right {
+    bottom: -100px;
+    right: 20px;
+    transform: rotate(-15deg);
+    z-index: 10;
+}
+
+/* Wave Divider */
+.wave-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    z-index: 5;
+}
+
+.wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(150% + 1.3px);
+    height: 100px;
+}
+
+.wave-divider .shape-fill {
+    fill: #FFFFFF;
+}
+
+/* Sea Footer */
+.sea-footer {
+    position: relative;
+    background: linear-gradient(180deg, var(--sky-blue) 0%, #004d99 100%);
+    padding-top: 150px;
+    margin-top: 150px;
+    overflow: hidden;
+}
+
+/* Background Highlight */
+.beach-bg-highlight {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30vh;
+    background-image: url('/images/summer/beach_bg.png');
+    background-size: cover;
+    background-position: bottom center;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.wave-animation > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.wave-animation > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+}
+.wave-animation > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+.wave-animation > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+.wave-animation > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes move-forever {
+    0% { transform: translate3d(-90px,0,0); }
+    100% { transform: translate3d(85px,0,0); }
+}
+
+/* Summer Stickers for Cards */
+.card-sticker {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 2.5rem;
+    transform: rotate(15deg);
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    z-index: 10;
+}
