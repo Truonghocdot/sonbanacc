@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Nạp Tiền - VanhFCO | AccFCO - Nhanh Chóng & An Toàn')
-@section('description', 'Nạp tiền vào tài khoản VanhFCO để mua Acc chứa FC, Acc Mở thẻ, Acc đội hình. Chuyển khoản ngân hàng tự động, nhanh chóng, an toàn.')
+@section('title', 'Nạp Tiền - SonBanAcc | Acc Liên Quân - Free Fire - Nhanh Chóng & An Toàn')
+@section('description', 'Nạp tiền vào tài khoản SonBanAcc để mua Acc có Quân Huy/ Kim Cương, Acc Random, Acc Rank Cao. Chuyển khoản ngân hàng tự động, nhanh chóng, an toàn.')
 
 @section('content')
 <div class="container mx-auto px-4 py-8">
@@ -71,7 +71,7 @@
                     <div class="flex justify-center pt-8 mt-8 border-t border-white/5 relative z-10">
                         <div class="bg-neutral-950 p-6 rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col items-center relative active:scale-[1.05] transition-transform duration-300">
                             <div class="p-3 bg-white rounded-3xl shadow-[0_0_30px_rgba(74,222,128,0.2)]">
-                                <img alt="QR Code Bank Transfer" class="w-56 h-56 rounded-2xl" src="https://api.vietqr.io/image/{{ $bankBin }}-{{ $bankNumber }}-compact2.png?amount=0&addInfo=vanhfco%20{{ Auth::id() }}&accountName={{ urlencode($bankName) }}">
+                                <img alt="QR Code Bank Transfer" class="w-56 h-56 rounded-2xl" src="https://api.vietqr.io/image/{{ $bankBin }}-{{ $bankNumber }}-compact2.png?amount=0&addInfo=sonbanacc%20{{ Auth::id() }}&accountName={{ urlencode($bankName) }}">
                             </div>
                             <div class="mt-6 text-center">
                                 <div class="inline-block bg-primary/10 text-primary text-[9px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-full mb-3 border border-primary/20">VietQR 2.0</div>
@@ -118,10 +118,10 @@
                                 </div>
                                 <div>
                                     <p class="text-[9px] text-primary font-black uppercase tracking-[0.3em] mb-1">Cú pháp chính xác</p>
-                                    <p class="text-4xl font-black text-white italic tracking-tight drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">vanhfco {{ Auth::id() }}</p>
+                                    <p class="text-4xl font-black text-white italic tracking-tight drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">sonbanacc {{ Auth::id() }}</p>
                                 </div>
                             </div>
-                            <button class="btn-esport px-10 py-5 rounded-2xl flex items-center gap-3 font-black text-base shadow-2xl transition-all active:scale-95 relative z-10 border-none" onclick="navigator.clipboard.writeText('vanhfco {{ Auth::id() }}')">
+                            <button class="btn-esport px-10 py-5 rounded-2xl flex items-center gap-3 font-black text-base shadow-2xl transition-all active:scale-95 relative z-10 border-none" onclick="navigator.clipboard.writeText('sonbanacc {{ Auth::id() }}')">
                                 <span class="material-icons">content_copy</span> SAO CHÉP
                             </button>
                         </div>
@@ -139,7 +139,7 @@
                         <div class="flex gap-5 group">
                             <div class="shrink-0 w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center font-black text-xl text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-lg">2</div>
                             <div class="flex-1 pt-1">
-                                <p class="text-neutral-400 text-sm leading-relaxed"><strong class="text-white">Kiểm tra thông tin</strong>: Nhập số tiền và kiểm tra kỹ nội dung chuyển khoản phải là <strong class="text-primary font-black underline decoration-2 underline-offset-4">vanhfco {{ Auth::id() }}</strong>.</p>
+                                <p class="text-neutral-400 text-sm leading-relaxed"><strong class="text-white">Kiểm tra thông tin</strong>: Nhập số tiền và kiểm tra kỹ nội dung chuyển khoản phải là <strong class="text-primary font-black underline decoration-2 underline-offset-4">sonbanacc {{ Auth::id() }}</strong>.</p>
                             </div>
                         </div>
 
@@ -154,7 +154,7 @@
                                 <p class="text-neutral-400 text-xs font-bold uppercase tracking-widest">{{ $bankName }}</p>
                             </div>
                             <p class="text-neutral-300 font-bold text-center text-[10px] uppercase tracking-widest leading-relaxed relative z-10">
-                                Nội dung đúng: <span class="text-primary font-black animate-pulse drop-shadow-[0_0_8px_rgba(74,222,128,0.5)]">vanhfco {{ Auth::id() }}</span>
+                                Nội dung đúng: <span class="text-primary font-black animate-pulse drop-shadow-[0_0_8px_rgba(74,222,128,0.5)]">sonbanacc {{ Auth::id() }}</span>
                             </p>
                         </div>
 

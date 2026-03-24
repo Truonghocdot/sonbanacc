@@ -2,7 +2,7 @@
 <div class="bg-black py-1 overflow-hidden whitespace-nowrap border-b border-white/5 relative z-60">
     <div class="animate-marquee flex items-center gap-8">
         <span class="text-primary font-black text-[10px] uppercase tracking-[0.2em] flex items-center gap-2">
-            ⚡ HỆ THỐNG MUA BÁN ACC FC ONLINE UY TÍN ⚡ GIAO DỊCH TỰ ĐỘNG 24/7 ⚡ HỖ TRỢ NHIỆT TÌNH ⚡ BẢO MẬT TUYỆT ĐỐI ⚡
+            ⚡ HỆ THỐNG MUA BÁN ACC Quân Huy/Kim Cương ONLINE UY TÍN ⚡ GIAO DỊCH TỰ ĐỘNG 24/7 ⚡ HỖ TRỢ NHIỆT TÌNH ⚡ BẢO MẬT TUYỆT ĐỐI ⚡
         </span>
     </div>
 </div>
@@ -14,7 +14,7 @@
         <div class="flex items-center gap-8">
             <!-- Logo -->
             <a href="{{ route('home') }}" class="flex items-center gap-2 group relative">
-                <img src="{{ asset('images/logo.png') }}" alt="VanhFCO Logo" class="h-10 md:h-12 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_0_10px_rgba(255,215,0,0.3)]">
+                <img src="{{ asset('images/logo.png') }}" alt="SonBanAcc Logo" class="h-10 md:h-12 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_0_10px_rgba(255,215,0,0.3)]">
                 <div class="absolute -inset-2 bg-primary/10 blur-xl rounded-full scale-0 group-hover:scale-110 transition-transform duration-700 opacity-0 group-hover:opacity-100"></div>
             </a>
 

@@ -43,7 +43,7 @@ class News extends Model implements Feedable
             ->summary($this->description)
             ->updated($this->updated_at)
             ->link(route('news.show', $this))
-            ->authorName('VanhFCO') // Change this to your name
+            ->authorName('SonBanAcc') // Change this to your name
             ->authorEmail('truonghocdot05@gmail.com'); // Change this to your email
     }
 

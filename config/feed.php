@@ -18,8 +18,8 @@ return [
              */
             'url' => '/feed/news',
 
-            'title' => 'Tin tức mới nhất từ VanhFCO.com',
-            'description' => 'Cập nhật những tin tức mới nhất về FC Online và các sản phẩm tại shop.',
+            'title' => 'Tin tức mới nhất từ SonBanAcc.com',
+            'description' => 'Cập nhật những tin tức mới nhất về Liên Quân & Free Fire và các sản phẩm tại shop.',
             'language' => 'vi-VN',
 
             /*

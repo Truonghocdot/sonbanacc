@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Tài khoản - VanhFCO | Quản lý & Hoa hồng giới thiệu')
-@section('description', 'Quản lý tài khoản VanhFCO, xem lịch sử mua Acc chứa FC, Acc Mở thẻ, theo dõi hoa hồng giới thiệu và số dư ví.')
+@section('title', 'Tài khoản - SonBanAcc | Quản lý & Hoa hồng giới thiệu')
+@section('description', 'Quản lý tài khoản SonBanAcc, xem lịch sử mua Acc có Quân Huy/ Kim Cương, Acc Random, theo dõi hoa hồng giới thiệu và số dư ví.')
 
 @section('content')
 <div class="max-w-7xl mx-auto px-4 py-8" x-data="{ activeTab: 'info' }">

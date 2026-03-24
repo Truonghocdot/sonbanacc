@@ -6,25 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'AccFCO - VanhFCO | Mua Acc chứa FC, Acc Mở thẻ, Acc đội hình Uy Tín')</title>
+    <title>@yield('title', 'Acc Liên Quân Free Fire - SonBanAcc | Mua Bán Nick Game Uy Tín')</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="@yield('description', 'VanhFCO - AccFCO chuyên bán Acc chứa FC, Acc Mở thẻ, Acc đội hình, Acc chứa BP trắng FC Online uy tín. Giá rẻ, giao dịch tự động 24/7, hoa hồng 5% cho người giới thiệu.')">
-    <meta name="keywords" content="@yield('keywords', 'AccFCO, VanhFCO, Acc chứa FC, Acc Mở thẻ, Acc đội hình, Acc chứa BP trắng, mua acc FC Online, shop acc FCO')">
+    <meta name="description" content="@yield('description', 'SonBanAcc - Acc Liên Quân - Free Fire chuyên bán Acc có Quân Huy/ Kim Cương, Acc Random, Acc Rank Cao, Acc trắng thông tin Liên Quân & Free Fire uy tín. Giá rẻ, giao dịch tự động 24/7, hoa hồng 5% cho người giới thiệu.')">
+    <meta name="keywords" content="@yield('keywords', 'Acc Liên Quân - Free Fire, SonBanAcc, Acc có Quân Huy/ Kim Cương, Acc Random, Acc Rank Cao, Acc trắng thông tin, mua acc Liên Quân & Free Fire, shop acc Liên Quân & FF')">
     <link rel="canonical" href="{{ url()->current() }}">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <!-- Open Graph & Twitter Card -->
-    <meta property="og:title" content="@yield('title', 'AccFCO - VanhFCO | Mua Acc chứa FC, Acc Mở thẻ, Acc đội hình Uy Tín')">
-    <meta property="og:description" content="@yield('description', 'VanhFCO - AccFCO chuyên bán Acc chứa FC, Acc Mở thẻ, Acc đội hình, Acc chứa BP trắng FC Online uy tín. Giá rẻ, giao dịch tự động 24/7, hoa hồng 5% cho người giới thiệu.')">
+    <meta property="og:title" content="@yield('title', 'Acc Liên Quân - Free Fire - SonBanAcc | Mua Acc có Quân Huy/ Kim Cương, Acc Random, Acc Rank Cao Uy Tín')">
+    <meta property="og:description" content="@yield('description', 'SonBanAcc - Acc Liên Quân - Free Fire chuyên bán Acc có Quân Huy/ Kim Cương, Acc Random, Acc Rank Cao, Acc trắng thông tin Liên Quân & Free Fire uy tín. Giá rẻ, giao dịch tự động 24/7, hoa hồng 5% cho người giới thiệu.')">
     <meta property="og:type" content="@yield('og:type', 'website')">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="@yield('og:image', asset('images/og-image.png'))">
-    <meta property="og:site_name" content="VanhFCO - AccFCO">
+    <meta property="og:site_name" content="SonBanAcc - Acc Liên Quân - Free Fire">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('title', 'AccFCO - VanhFCO | Mua Acc chứa FC, Acc Mở thẻ, Acc đội hình Uy Tín')">
-    <meta name="twitter:description" content="@yield('description', 'VanhFCO - AccFCO chuyên bán Acc chứa FC, Acc Mở thẻ, Acc đội hình, Acc chứa BP trắng FC Online uy tín. Giá rẻ, giao dịch tự động 24/7, hoa hồng 5% cho người giới thiệu.')">
+    <meta name="twitter:title" content="@yield('title', 'Acc Liên Quân - Free Fire - SonBanAcc | Mua Acc có Quân Huy/ Kim Cương, Acc Random, Acc Rank Cao Uy Tín')">
+    <meta name="twitter:description" content="@yield('description', 'SonBanAcc - Acc Liên Quân - Free Fire chuyên bán Acc có Quân Huy/ Kim Cương, Acc Random, Acc Rank Cao, Acc trắng thông tin Liên Quân & Free Fire uy tín. Giá rẻ, giao dịch tự động 24/7, hoa hồng 5% cho người giới thiệu.')">
     <meta name="twitter:image" content="@yield('og:image', asset('images/og-image.png'))">
 
     <!-- Fonts -->
@@ -40,16 +40,32 @@
     <!-- Additional Meta Tags -->
     @stack('meta')
 
+    <!-- Google Analytics -->
+    @if(config('services.google.analytics_id'))
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('services.google.analytics_id') }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{ config("services.google.analytics_id") }}');
+        </script>
+    @endif
+
+    <!-- Google AdSense -->
+    @if(config('services.google.adsense_id'))
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ config('services.google.adsense_id') }}" crossorigin="anonymous"></script>
+    @endif
+
     <!-- Global Organization Schema -->
     <script type="application/ld+json">
         {
             "@@context": "https://schema.org",
             "@@type": "Organization",
-            "name": "VanhFCO - AccFCO",
-            "alternateName": ["VanhFCO", "AccFCO"],
+            "name": "SonBanAcc - Acc Liên Quân - Free Fire",
+            "alternateName": ["SonBanAcc", "Acc Liên Quân - Free Fire"],
             "url": "{{ url('/') }}",
             "logo": "{{ asset('images/logo.png') }}",
-            "description": "Shop bán Acc chứa FC, Acc Mở thẻ, Acc đội hình FC Online uy tín nhất Việt Nam",
+            "description": "Shop bán Acc có Quân Huy/ Kim Cương, Acc Random, Acc Rank Cao Liên Quân & Free Fire uy tín nhất Việt Nam",
             "contactPoint": {
                 "@@type": "ContactPoint",
                 "telephone": "+84986526036",

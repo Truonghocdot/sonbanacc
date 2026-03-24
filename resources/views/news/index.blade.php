@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Tin Tức FC Online - VanhFCO | AccFCO - Sự Kiện & Cập Nhật')
-@section('description', 'Cập nhật tin tức mới nhất về FC Online, sự kiện hot, hướng dẫn mua Acc chứa FC, Acc Mở thẻ tại VanhFCO.')
+@section('title', 'Tin Tức Liên Quân & Free Fire - SonBanAcc | Acc Liên Quân - Free Fire - Sự Kiện & Cập Nhật')
+@section('description', 'Cập nhật tin tức mới nhất về Liên Quân & Free Fire, sự kiện hot, hướng dẫn mua Acc có Quân Huy/ Kim Cương, Acc Random tại SonBanAcc.')
 
 @section('content')
 <div class="container mx-auto px-4 py-8">
@@ -23,7 +23,7 @@
         
         <!-- Flying birds decorative image -->
         <img src="{{ asset('images/summer/chim.png') }}" alt="Birds" class="absolute -top-10 right-0 w-24 md:w-48 opacity-60 pointer-events-none drop-shadow-lg animate-float hidden md:block">
-        <p class="text-text-muted font-black uppercase tracking-[0.3em] text-[10px] md:text-xs">Cập nhật tin tức hot nhất về FC Online</p>
+        <p class="text-text-muted font-black uppercase tracking-[0.3em] text-[10px] md:text-xs">Cập nhật tin tức hot nhất về Liên Quân & Free Fire</p>
         <div class="h-1 w-32 bg-linear-to-r from-transparent via-primary to-transparent mx-auto rounded-full mt-8"></div>
     </div>
 

@@ -7,11 +7,11 @@
             <div>
                 <div class="flex items-center gap-2 mb-8">
                     <a href="{{ route('home') }}" class="group">
-                        <img src="{{ asset('images/logo.png') }}" alt="VanhFCO Logo" class="h-12 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.2)] transition-opacity group-hover:opacity-80" loading="lazy" decoding="async">
+                        <img src="{{ asset('images/logo.png') }}" alt="SonBanAcc Logo" class="h-12 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,215,0,0.2)] transition-opacity group-hover:opacity-80" loading="lazy" decoding="async">
                     </a>
                 </div>
                 <p class="text-text-secondary text-sm leading-relaxed max-w-sm">
-                    Hệ thống mua bán nick FC Online uy tín, an toàn nhất Việt Nam. Giao dịch tự động 24/7, hỗ trợ nhiệt tình, bảo mật tuyệt đối.
+                    Hệ thống mua bán nick Liên Quân & Free Fire uy tín, an toàn nhất Việt Nam. Giao dịch tự động 24/7, hỗ trợ nhiệt tình, bảo mật tuyệt đối.
                 </p>
             </div>
 
@@ -92,7 +92,7 @@
 
         <div class="text-center border-t border-white/5 pt-8">
             <p class="text-text-muted text-[10px] font-black uppercase tracking-widest md:tracking-[0.3em] px-4 leading-loose">
-                Copyright © {{ date('Y') }} <span class="text-primary/70">VanhFCO.com</span> <br class="md:hidden"> - <a href="https://www.facebook.com/truong.cut.5220" class="hover:text-text-primary transition-colors">Truonghocdot</a>
+                Copyright © {{ date('Y') }} <span class="text-primary/70">SonBanAcc.com</span> <br class="md:hidden"> - <a href="https://www.facebook.com/truong.cut.5220" class="hover:text-text-primary transition-colors">Truonghocdot</a>
             </p>
         </div>
     </div>

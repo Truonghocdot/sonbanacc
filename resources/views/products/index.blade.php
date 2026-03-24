@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Mua Acc FC Online - AccFCO | VanhFCO - Acc chứa FC, Acc Mở thẻ')
-@section('description', 'Mua Acc chứa FC, Acc Mở thẻ, Acc đội hình, Acc chứa BP trắng tại VanhFCO. Giá rẻ, uy tín, giao dịch tự động 24/7.')
+@section('title', 'Mua Acc Liên Quân & Free Fire - Acc Liên Quân - Free Fire | SonBanAcc - Acc có Quân Huy/ Kim Cương, Acc Random')
+@section('description', 'Mua Acc có Quân Huy/ Kim Cương, Acc Random, Acc Rank Cao, Acc trắng thông tin tại SonBanAcc. Giá rẻ, uy tín, giao dịch tự động 24/7.')
 
 @section('content')
 <div class="container mx-auto px-4 py-8">
@@ -18,7 +18,7 @@
 
         <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-text-primary mb-3 flex justify-center items-center gap-4 relative z-10">
             <img src="{{ asset('images/summer/saobien3.png') }}" alt="Starfish" class="w-10 h-10 md:w-14 md:h-14 animate-float">
-            MUA ACC FC ONLINE
+            MUA ACC Quân Huy/Kim Cương ONLINE
             <img src="{{ asset('images/summer/saobien4.png') }}" alt="Starfish" class="w-10 h-10 md:w-14 md:h-14 animate-float" style="animation-delay: 1s;">
         </h1>
         <p class="text-text-muted font-black uppercase tracking-[0.3em] text-[10px] md:text-xs">Kho tài khoản khổng lồ • Uy tín • Giao dịch tự động</p>

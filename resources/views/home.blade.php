@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Trang chủ - VanhFCO.com - mua bán tài khoản FCO4 - Uy tín chất lượng')
-@section('description', 'Mua bán tài khoản FC Online uy tín, giá rẻ, giao dịch tự động 24/7.')
+@section('title', 'Trang chủ - SonBanAcc.com - mua bán tài khoản Liên Quân & Free Fire - Uy tín chất lượng')
+@section('description', 'Mua bán tài khoản Liên Quân & Free Fire uy tín, giá rẻ, giao dịch tự động 24/7.')
 
 @push('styles')
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -86,7 +86,7 @@
                         <span class="material-icons text-3xl md:text-4xl text-white">surfing</span> HỨNG DỪA <span class="text-white italic">ĐÓN QUÀ</span>
                     </h2>
                     <p class="text-white/90 text-sm md:text-lg mb-4 md:mb-8 max-w-md mx-auto md:mx-0">
-                        Trải nghiệm cảm giác rẽ sóng săn quà cực khủng! Nhận ngay Acc FCO siêu phẩm, BP trắng cực hời chỉ từ một lượt lướt!
+                        Trải nghiệm cảm giác rẽ sóng săn quà cực khủng! Nhận ngay Acc Liên Quân & FF siêu phẩm, trắng thông tin cực hời chỉ từ một lượt lướt!
                     </p>
                     <div class="inline-flex items-center gap-2 md:gap-3 btn-esport py-2 px-6 md:py-3 md:px-8 rounded-full group-hover/tree:scale-105 transition-transform">
                         <span class="material-icons text-sm md:text-base">surfing</span> HỨNG DỪA NGAY <span class="material-icons text-sm md:text-base">arrow_forward</span>
@@ -315,7 +315,7 @@
 $websiteSchema = [
 "@@context" => "https://schema.org",
 "@@type" => "WebSite",
-"name" => "Shop Acc FC Online 24/7 - Giao dịch trung gian - VanhFCO",
+"name" => "Shop Acc Liên Quân & Free Fire 24/7 - Giao dịch trung gian - SonBanAcc",
 "url" => route('home'),
 "potentialAction" => [
 "@@type" => "SearchAction",
@@ -327,7 +327,7 @@ $websiteSchema = [
 $orgSchema = [
 "@@context" => "https://schema.org",
 "@@type" => "Organization",
-"name" => "VanhFCO",
+"name" => "SonBanAcc",
 "url" => route('home'),
 "logo" => asset('images/logo.png'),
 "contactPoint" => [

@@ -6,25 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'VanhFCO.com - Shop Acc FC Online Uy Tín Số 1')</title>
+    <title>@yield('title', 'SonBanAcc.com - Shop Acc Liên Quân Free Fire Uy Tín Số 1')</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="@yield('description', 'Shop bán tài khoản FC Online uy tín, giá rẻ nhất Việt Nam. Giao dịch tự động 24/7.')">
-    <meta name="keywords" content="@yield('keywords', 'acc fc online, mua acc fo4, shop acc fco, tài khoản fc online')">
+    <meta name="description" content="@yield('description', 'Shop bán tài khoản Liên Quân & Free Fire uy tín, giá rẻ nhất Việt Nam. Giao dịch tự động 24/7.')">
+    <meta name="keywords" content="@yield('keywords', 'acc liên quân & free fire, mua acc lq-ff, shop acc lq ff, tài khoản liên quân & free fire')">
     <link rel="canonical" href="{{ url()->current() }}">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <!-- Open Graph & Twitter Card -->
-    <meta property="og:title" content="@yield('title', 'VanhFCO.com - Shop Acc FC Online Uy Tín Số 1')">
-    <meta property="og:description" content="@yield('description', 'Shop bán    tài khoản FC Online uy tín, giá rẻ nhất Việt Nam. Giao dịch tự động 24/7.')">
+    <meta property="og:title" content="@yield('title', 'SonBanAcc.com - Shop Acc Liên Quân & Free Fire Uy Tín Số 1')">
+    <meta property="og:description" content="@yield('description', 'Shop bán    tài khoản Liên Quân & Free Fire uy tín, giá rẻ nhất Việt Nam. Giao dịch tự động 24/7.')">
     <meta property="og:type" content="@yield('og:type', 'website')">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="@yield('og:image', asset('images/og-image.png'))">
-    <meta property="og:site_name" content="VanhFCO.com">
+    <meta property="og:site_name" content="SonBanAcc.com">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('title', 'VanhFCO.com - Shop Acc FC Online Uy Tín Số 1')">
-    <meta name="twitter:description" content="@yield('description', 'Shop bán tài khoản FC Online uy tín, giá rẻ nhất Việt Nam. Giao dịch tự động 24/7.')">
+    <meta name="twitter:title" content="@yield('title', 'SonBanAcc.com - Shop Acc Liên Quân & Free Fire Uy Tín Số 1')">
+    <meta name="twitter:description" content="@yield('description', 'Shop bán tài khoản Liên Quân & Free Fire uy tín, giá rẻ nhất Việt Nam. Giao dịch tự động 24/7.')">
     <meta name="twitter:image" content="@yield('og:image', asset('images/og-image.png'))">
 
     <!-- Fonts -->

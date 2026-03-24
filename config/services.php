@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'google' => [
+        'analytics_id' => env('GOOGLE_ANALYTICS_ID'),
+        'adsense_id' => env('GOOGLE_ADSENSE_ID'),
+    ],
+
 ];

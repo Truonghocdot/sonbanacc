@@ -32,7 +32,7 @@ class ChangeAdminPassword extends Command
         $email = $this->argument('email');
 
         if (!$email) {
-            $email = $this->ask('Please enter the admin email (e.g., admin@vanhfco.com)');
+            $email = $this->ask('Please enter the admin email (e.g., admin@sonbanacc.com)');
         }
 
         $admin = User::where('email', $email)

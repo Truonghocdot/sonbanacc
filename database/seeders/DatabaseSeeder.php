@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'name' => 'Admin',
-            'email' => 'admin@vanhfco.com',
+            'email' => 'admin@sonbanacc.com',
             'password' => Hash::make('password'),
             'role' => UserRole::ADMIN,
         ]);
@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
     {
         Setting::create([
             'setting_name' => SettingName::BIN_BANK->value,
-            'setting_value' => '970422', // MB Bank BIN
+            'setting_value' => '970418', // MB Bank BIN
         ]);
 
         Setting::create([
@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
 
         Setting::create([
             'setting_name' => SettingName::ACCOUNT_NAME->value,
-            'setting_value' => 'LE VIET ANH',
+            'setting_value' => 'NGUYEN MINH SON',
         ]);
 
         Setting::create([

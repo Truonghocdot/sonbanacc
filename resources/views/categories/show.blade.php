@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $category->meta_title ?? $category->title . ' - VanhFCO')
+@section('title', $category->meta_title ?? $category->title . ' - SonBanAcc')
 @section('description', $category->meta_description ?? $category->description)
 
 @section('content')

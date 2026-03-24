@@ -88,12 +88,12 @@ class WebhookService
 
     /**
      * Extract user ID from webhook content
-     * Expected format: "vanhfco 123" or "VANHFCO 123"
+     * Expected format: "sonbanacc 123" or "SONBANACC 123"
      */
     protected function extractUserIdFromContent(string $content): ServiceResult
     {
         try {
-            if (!preg_match('/vanhfco\s+(\d+)/i', $content, $matches)) {
+            if (!preg_match('/sonbanacc\s+(\d+)/i', $content, $matches)) {
                 Log::warning('WebhookService: Invalid content format', ['content' => $content]);
                 return ServiceResult::error('Invalid content format');
             }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Đăng nhập - VanhFCO.com')
-@section('description', 'Đăng nhập vào tài khoản Shop Acc FC Online để mua bán, nạp tiền và quản lý tài khoản của bạn.')
+@section('title', 'Đăng nhập - SonBanAcc.com')
+@section('description', 'Đăng nhập vào tài khoản Shop Acc Liên Quân & Free Fire để mua bán, nạp tiền và quản lý tài khoản của bạn.')
 
 @section('content')
 <div class="min-h-[calc(100vh-250px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">

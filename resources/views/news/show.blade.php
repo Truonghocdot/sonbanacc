@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $news->meta_title ?? $news->title . ' - VanhFCO')
+@section('title', $news->meta_title ?? $news->title . ' - SonBanAcc')
 @section('description', $news->meta_description ?? $news->description)
 
 <style>
@@ -21,7 +21,7 @@
     .news-content h2,
     .news-content h3 {
         margin-top: 2.5rem;
-        margin-bottom: 1.25rem;
+        margin-bo   ttom: 1.25rem;
         font-weight: 900;
         color: var(--color-text-primary);
         text-transform: uppercase;
