@@ -49,8 +49,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'LE VIET ANH', // Tên khớp với Facebook Link và giao diện trang chủ
-            'email' => 'levietanh@sonbanacc.com',
+            'name' => 'NGUYEN MINH SON', // Tên khớp với Facebook Link và giao diện trang chủ
+            'email' => 'minhson@sonbanacc.com',
             'password' => Hash::make('password'),
             'role' => UserRole::ADMIN,
             'status' => 1,

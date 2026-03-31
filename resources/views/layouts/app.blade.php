@@ -14,6 +14,12 @@
     <link rel="canonical" href="{{ url()->current() }}">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#fbcc05">
+    <meta name="theme-color" content="#0b1020">
     <!-- Open Graph & Twitter Card -->
     <meta property="og:title" content="@yield('title', 'Acc Liên Quân - Free Fire - SonBanAcc | Mua Acc có Quân Huy/ Kim Cương, Acc Random, Acc Rank Cao Uy Tín')">
     <meta property="og:description" content="@yield('description', 'SonBanAcc - Acc Liên Quân - Free Fire chuyên bán Acc có Quân Huy/ Kim Cương, Acc Random, Acc Rank Cao, Acc trắng thông tin Liên Quân & Free Fire uy tín. Giá rẻ, giao dịch tự động 24/7, hoa hồng 5% cho người giới thiệu.')">
