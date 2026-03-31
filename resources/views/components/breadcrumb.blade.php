@@ -6,15 +6,15 @@
         @foreach($items as $index => $item)
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center gap-2">
             @if($loop->last)
-            <span class="text-primary font-semibold" itemprop="name">{{ $item['name'] }}</span>
+            <span class="text-gold-primary font-black uppercase italic tracking-wider" itemprop="name">{{ $item['name'] }}</span>
             @else
             <a href="{{ $item['url'] }}"
-                class="hover:text-primary transition-colors"
+                class="hover:text-gold-primary transition-colors font-bold uppercase text-[10px] tracking-widest text-white/60"
                 itemprop="item">
                 <span itemprop="name">{{ $item['name'] }}</span>
             </a>
             <meta itemprop="position" content="{{ $index + 1 }}" />
-            <span class="material-icons text-xs text-neutral-700">chevron_right</span>
+            <span class="material-icons text-[10px] text-gold-border/40">arrow_forward_ios</span>
             @endif
         </li>
         @endforeach

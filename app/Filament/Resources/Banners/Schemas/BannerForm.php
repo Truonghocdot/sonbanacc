@@ -15,24 +15,30 @@ class BannerForm
     {
         return $schema
             ->components([
+                TextInput::make('title')
+                    ->label('Tiêu đề')
+                    ->placeholder('VD: SIÊU CẤP LIÊN QUÂN'),
+                TextInput::make('subtitle')
+                    ->label('Mô tả ngắn')
+                    ->placeholder('VD: Khám phá kho tài khoản bậc Thách Đấu...'),
+                TextInput::make('button_text')
+                    ->label('Chữ trên nút')
+                    ->placeholder('VD: KHÁM PHÁ NGAY'),
+                TextInput::make('url')
+                    ->label('Đường dẫn (URL)')
+                    ->placeholder('VD: /products?category=lien-quan'),
                 TextInput::make('sort')
                     ->label('Thứ tự')
                     ->required()
                     ->numeric()
-                    ->validationMessages([
-                        'required' => 'Thứ tự không được để trống',
-                        'numeric' => 'Thứ tự phải là số',
-                    ]),
+                    ->default(0),
                 HandlesWebpUploads::processImageUpload(
                     FileUpload::make('image')
                         ->required()
-                        ->label('Hình ảnh')
+                        ->label('Hình ảnh (1920x800)')
                         ->disk('public')
                         ->directory('banners')
                         ->image()
-                        ->validationMessages([
-                            'required' => 'Hình ảnh không được để trống',
-                        ])
                 ),
             ]);
     }

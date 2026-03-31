@@ -38,13 +38,11 @@
     <div class="w-full mx-auto">
         <!-- Breadcrumb -->
         <div class="mb-6 text-[10px] font-black text-text-muted flex items-center gap-2 uppercase tracking-[0.2em]">
-            <a href="{{ route('home') }}" class="hover:text-primary transition-colors flex items-center gap-1.5">
-                <img src="{{ asset('images/summer/saobien1.png') }}" alt="Starfish" class="w-4 h-4 mr-1"> Trang chủ
-            </a>
+            <a href="{{ route('home') }}" class="hover:text-gold-primary transition-colors flex items-center gap-1.5">Trang chủ</a>
             <span class="mx-1 text-white/10">/</span>
-            <a href="{{ route('news.index') }}" class="hover:text-primary transition-colors">Tin tức</a>
+            <a href="{{ route('news.index') }}" class="hover:text-gold-primary transition-colors">Tin tức</a>
             <span class="mx-1 text-white/10">/</span>
-            <span class="text-primary drop-shadow-[0_0_8px_rgba(34,197,94,0.3)]">{{ $news->title }}</span>
+            <span class="text-gold-primary drop-shadow-[0_0_8px_rgba(251,204,5,0.3)]">{{ $news->title }}</span>
         </div>
 
         <!-- Article -->
@@ -60,9 +58,7 @@
 
             <div class="p-6 md:p-12 relative z-10">
                 <h1 class="text-3xl md:text-5xl font-black mb-6 text-text-primary leading-tight tracking-tight flex items-center gap-3 md:gap-4 relative">
-                    <img src="{{ asset('images/summer/saobien3.png') }}" alt="Starfish" class="w-10 h-10 md:w-14 md:h-14 animate-float -ml-2 md:-ml-4">
                     {{ $news->title }}
-                    <img src="{{ asset('images/summer/chim.png') }}" alt="Birds" class="absolute -top-12 -right-4 w-24 md:w-32 opacity-40 pointer-events-none drop-shadow-lg animate-float">
                 </h1>
                 <div class="flex items-center gap-6 text-[10px] font-black text-text-muted mb-8 pb-8 border-b border-white/5 uppercase tracking-widest">
                     <div class="flex items-center gap-2">
@@ -99,9 +95,6 @@
                 <article class="card-esport group transition-all hover:scale-[1.02] relative">
                     <div class="relative overflow-hidden aspect-video min-h-[140px] md:min-h-0">
                         <img alt="{{ $item->title }}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" src="{{ url('storage/'.$item->thumbnail) ?? 'https://via.placeholder.com/400x225' }}" loading="lazy">
-                        <div class="card-sticker">
-                            <img src="{{ asset('images/summer/saobien'.(($loop->index % 4) + 1).'.png') }}" alt="Starfish" class="w-10 h-10">
-                        </div>
                     </div>
                     <div class="p-5">
                         <h3 class="font-bold text-base mb-3 line-clamp-2 h-12 text-text-primary group-hover:text-primary transition-colors tracking-tight leading-tight">{{ $item->title }}</h3>
@@ -109,8 +102,7 @@
                             <span class="material-icons text-xs text-primary">schedule</span>
                             {{ $item->created_at->diffForHumans() }}
                         </div>
-                        <a href="{{ route('news.show', $item->slug) }}" class="text-text-primary hover:text-primary font-black text-xs uppercase tracking-widest flex items-center gap-2 transition-colors group/link border-t border-white/5 pt-4">
-                            <img src="{{ asset('images/summer/saobien'.(($loop->index % 4) + 1).'.png') }}" alt="Icon" class="w-5 h-5 animate-float">
+                        <a href="{{ route('news.show', $item->slug) }}" class="text-white hover:text-gold-primary font-black text-xs uppercase tracking-widest flex items-center gap-2 transition-colors group/link border-t border-white/5 pt-4">
                             ĐỌC THÊM <span class="material-icons text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
                         </a>
                     </div>

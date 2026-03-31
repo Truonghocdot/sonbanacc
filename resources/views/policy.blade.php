@@ -41,8 +41,8 @@
 @section('content')
 <div class="policy-page relative overflow-hidden min-h-screen py-12 md:py-20">
     <!-- Background Decorations -->
-    <div class="absolute top-20 left-0 w-64 h-64 bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
-    <div class="absolute bottom-40 right-0 w-96 h-96 bg-secondary/20 blur-[150px] rounded-full pointer-events-none"></div>
+    <div class="absolute top-20 left-0 w-64 h-64 bg-gold-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-40 right-0 w-96 h-96 bg-gold-primary/5 blur-[150px] rounded-full pointer-events-none"></div>
     
     <div class="container mx-auto px-4 relative z-10 max-w-5xl">
         <!-- Hero Section -->
@@ -52,16 +52,13 @@
                     CHÍNH SÁCH <span class="text-white italic text-neon">DỊCH VỤ</span>
                 </h1>
                 <div class="flex items-center justify-center gap-4">
-                    <div class="h-1 w-12 bg-primary rounded-full"></div>
-                    <p class="text-text-muted font-bold tracking-[0.2em] uppercase text-xs md:text-sm">
-                        SonBanAcc Protocol v3.0 • Summer Edition
+                    <div class="h-1 w-12 bg-gold-primary rounded-full"></div>
+                    <p class="text-text-muted font-black tracking-[0.2em] uppercase text-[10px] md:text-sm">
+                        SonBanAcc Protocol v3.0 • Final Edition
                     </p>
-                    <div class="h-1 w-12 bg-primary rounded-full"></div>
+                    <div class="h-1 w-12 bg-gold-primary rounded-full"></div>
                 </div>
             </div>
-            <!-- Decorative Starfish -->
-            <img src="{{ asset('images/summer/saobien1.png') }}" alt="Starfish" class="absolute -top-10 -left-10 w-20 h-20 animate-spin-slow opacity-80">
-            <img src="{{ asset('images/summer/saobien2.png') }}" alt="Starfish" class="absolute -bottom-10 -right-10 w-24 h-24 animate-swing opacity-80">
         </div>
 
         <div class="grid grid-cols-1 gap-12">
@@ -115,7 +112,7 @@
                                     <span class="font-bold text-text-primary">Nhận lúa về ví SonBanAcc</span>
                                 </li>
                             </ul>
-                            <img src="{{ asset('images/summer/saobien3.png') }}" alt="Icon" class="absolute -bottom-4 -right-4 w-20 h-20 opacity-20 transform rotate-45">
+                            <span class="material-icons text-gold-primary/10 absolute -bottom-4 -right-4 text-7xl transform rotate-12">verified</span>
                         </div>
                     </div>
                 </div>

@@ -1,26 +1,30 @@
 <div class="min-h-screen bg-black overflow-hidden relative">
-    <!-- Summer Decorations -->
+    <!-- Esport Decorations -->
     <div class="absolute inset-0 z-0 pointer-events-none">
-        <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-white/5 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-0 left-0 w-full h-64 opacity-20" style="background: linear-gradient(transparent, var(--color-primary)); mask-image: radial-gradient(circle at 50% 100%, black, transparent 70%);"></div>
+        <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-full h-96 bg-gold-primary/5 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 w-full h-64 opacity-20" style="background: linear-gradient(transparent, var(--color-gold-primary)); mask-image: radial-gradient(circle at 50% 100%, black, transparent 70%);"></div>
+        
+        <!-- Tech grid background -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 2px 2px, var(--color-gold-primary) 1px, transparent 0); background-size: 32px 32px;"></div>
+        
         <div class="absolute -bottom-10 -left-20 w-64 h-96 opacity-10 blur-[2px] rotate-12">
-            <span class="material-icons text-[200px] text-primary">park</span>
+            <span class="material-icons text-[200px] text-gold-primary">videogame_asset</span>
         </div>
         <div class="absolute -bottom-10 -right-20 w-64 h-96 opacity-10 blur-[2px] -rotate-12">
-            <span class="material-icons text-[200px] text-primary">park</span>
+            <span class="material-icons text-[200px] text-gold-primary">precision_manufacturing</span>
         </div>
     </div>
 
     <div class="container mx-auto px-4 py-8 max-w-2xl relative z-10">
         <!-- Header -->
         <div class="text-center mb-8">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4 animate-bounce">
-                <span class="text-[10px] font-black text-primary uppercase tracking-[0.3em]">SUMMER EVENT {{ date('Y') }}</span>
+            <div class="inline-block px-4 py-1.5 rounded-full bg-gold-primary/10 border border-gold-primary/20 mb-4 animate-bounce">
+                <span class="text-[10px] font-black text-gold-primary uppercase tracking-[0.3em]">ESPORT EVENT {{ date('Y') }}</span>
             </div>
             <h1 class="text-4xl md:text-6xl font-black text-white italic tracking-tighter uppercase mb-2">
-                HỨNG DỪA <span class="text-primary drop-shadow-[0_0_15px_rgba(0,255,133,0.6)]">ĐÓN QUÀ</span>
+                HỨNG <span class="text-gold-primary drop-shadow-[0_0_15px_rgba(251,204,5,0.6)]">KIM CƯƠNG</span>
             </h1>
-            <p class="text-neutral-500 font-bold uppercase tracking-widest text-xs">Surf the wave • Catch coconuts • Win prizes</p>
+            <p class="text-neutral-500 font-bold uppercase tracking-widest text-xs">Unlock Rewards • Master the Game • Win Big</p>
         </div>
 
         <!-- Spins Counter -->
@@ -43,11 +47,11 @@
             <div class="glass rounded-[2rem] border border-white/10 p-1 bg-black/40 overflow-hidden relative shadow-[0_0_50px_rgba(0,0,0,0.5)]">
                 <canvas id="surf-game" class="w-full rounded-[1.8rem] block" style="aspect-ratio: 16/10; image-rendering: auto;"></canvas>
                 <!-- Game status overlay -->
-                <div id="game-idle-overlay" class="absolute inset-0 flex items-center justify-center bg-black/30 rounded-[1.8rem] transition-opacity duration-300">
-                    <div class="text-center">
-                        <span class="material-icons text-6xl text-primary animate-float mb-4 block">surfing</span>
-                        <p class="text-white font-black text-lg uppercase tracking-wider">Sẵn sàng hứng dừa!</p>
-                        <p class="text-neutral-500 text-xs mt-2">Nhấn nút bên dưới để bắt đầu</p>
+                <div id="game-idle-overlay" class="absolute inset-0 flex items-center justify-center bg-black/50 rounded-[1.8rem] transition-opacity duration-300">
+                    <div class="text-center px-6">
+                        <span class="material-icons text-7xl text-gold-primary animate-float mb-6 block drop-shadow-[0_0_20px_rgba(251,204,5,0.5)]">auto_fix_high</span>
+                        <p class="text-white font-black text-2xl uppercase tracking-tighter italic">TRẬN CHIẾN KIM CƯƠNG!</p>
+                        <p class="text-gold-primary/60 text-[10px] mt-3 font-black uppercase tracking-[0.2em]">Nhấn nút bên dưới để khai hỏa</p>
                     </div>
                 </div>
             </div>
@@ -64,12 +68,12 @@
                 <div class="absolute bottom-0 left-0 w-full h-1 bg-white/20 blur-[1px]"></div>
 
                 <span wire:loading.remove class="flex items-center justify-center gap-3 relative z-10 text-base italic tracking-tighter">
-                    <span class="material-icons text-xl">surfing</span>
-                    BẮT ĐẦU LƯỚT NGAY
+                    <span class="material-icons text-xl">bolt</span>
+                    XUẤT KÍCH NGAY
                 </span>
                 <span wire:loading class="flex items-center justify-center gap-2 relative z-10">
-                    <span class="material-icons animate-spin">refresh</span>
-                    ĐANG RẼ SÓNG...
+                    <span class="material-icons animate-spin">sync</span>
+                    ĐANG KẾT NỐI...
                 </span>
 
                 <div class="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
@@ -117,28 +121,28 @@
             <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('{{ asset('images/esport/bg_pattern.png') }}'); background-size: cover;"></div>
 
             <div class="flex items-center gap-4 mb-8 relative z-10">
-                <div class="w-12 h-12 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center text-primary">
+                <div class="w-12 h-12 bg-gold-primary/10 border border-gold-primary/20 rounded-2xl flex items-center justify-center text-gold-primary">
                     <span class="material-icons">help_outline</span>
                 </div>
-                <h3 class="text-2xl font-black text-white uppercase tracking-tighter italic">LUẬT CHƠI HỨNG DỪA</h3>
+                <h3 class="text-2xl font-black text-white uppercase tracking-tighter italic">HƯỚNG DẪN CHIẾN ĐẤU</h3>
             </div>
 
             <ul class="space-y-4 relative z-10">
                 <li class="flex items-start gap-4 p-5 bg-white/5 rounded-3xl border border-white/5 group hover:bg-white/10 transition-colors">
-                    <div class="w-8 h-8 bg-primary/20 rounded-xl flex items-center justify-center shrink-0 text-primary text-xs font-black group-hover:bg-primary group-hover:text-black transition-all">01</div>
-                    <span class="text-xs font-bold text-neutral-400 leading-relaxed uppercase tracking-wide">Mỗi lượt nạp hoặc đơn hàng đạt mốc quy định sẽ nhận được <strong class="text-primary italic">Lượt Lướt Sóng</strong> tương ứng.</span>
+                    <div class="w-8 h-8 bg-gold-primary/20 rounded-xl flex items-center justify-center shrink-0 text-gold-primary text-xs font-black group-hover:bg-gold-primary group-hover:text-black transition-all">01</div>
+                    <span class="text-xs font-bold text-neutral-400 leading-relaxed uppercase tracking-wide">Mỗi lượt nạp hoặc đơn hàng đạt mốc quy định sẽ nhận được <strong class="text-gold-primary italic">Lượt Chinh Phục</strong> tương ứng.</span>
                 </li>
                 <li class="flex items-start gap-4 p-5 bg-white/5 rounded-3xl border border-white/5 group hover:bg-white/10 transition-colors">
-                    <div class="w-8 h-8 bg-primary/20 rounded-xl flex items-center justify-center shrink-0 text-primary text-xs font-black group-hover:bg-primary group-hover:text-black transition-all">02</div>
-                    <span class="text-xs font-bold text-neutral-400 leading-relaxed uppercase tracking-wide">Nhấn nút "BẮT ĐẦU LƯỚT" → Surfer xuất hiện trên biển, dừa rơi từ cây dừa trên trời.</span>
+                    <div class="w-8 h-8 bg-gold-primary/20 rounded-xl flex items-center justify-center shrink-0 text-gold-primary text-xs font-black group-hover:bg-gold-primary group-hover:text-black transition-all">02</div>
+                    <span class="text-xs font-bold text-neutral-400 leading-relaxed uppercase tracking-wide">Nhấn nút "XUẤT KÍCH" → Robot xuất hiện, kim cương sẽ rơi từ trên trời xuống.</span>
                 </li>
                 <li class="flex items-start gap-4 p-5 bg-white/5 rounded-3xl border border-white/5 group hover:bg-white/10 transition-colors">
-                    <div class="w-8 h-8 bg-primary/20 rounded-xl flex items-center justify-center shrink-0 text-primary text-xs font-black group-hover:bg-primary group-hover:text-black transition-all">03</div>
-                    <span class="text-xs font-bold text-neutral-400 leading-relaxed uppercase tracking-wide">Di chuột hoặc chạm màn hình để di chuyển surfer hứng dừa. <strong class="text-primary italic">Dừa vàng = có thưởng!</strong></span>
+                    <div class="w-8 h-8 bg-gold-primary/20 rounded-xl flex items-center justify-center shrink-0 text-gold-primary text-xs font-black group-hover:bg-gold-primary group-hover:text-black transition-all">03</div>
+                    <span class="text-xs font-bold text-neutral-400 leading-relaxed uppercase tracking-wide">Di chuột hoặc chạm màn hình để di chuyển robot hứng kim cương. <strong class="text-gold-primary italic">Loot Box Vàng = Jackpot!</strong></span>
                 </li>
                 <li class="flex items-start gap-4 p-5 bg-white/5 rounded-3xl border border-white/5 group hover:bg-white/10 transition-colors">
-                    <div class="w-8 h-8 bg-primary/20 rounded-xl flex items-center justify-center shrink-0 text-primary text-xs font-black group-hover:bg-primary group-hover:text-black transition-all">04</div>
-                    <span class="text-xs font-bold text-neutral-400 leading-relaxed uppercase tracking-wide">Phần thưởng sẽ được cộng trực tiếp vào ví sau khi kết thúc ván lướt.</span>
+                    <div class="w-8 h-8 bg-gold-primary/20 rounded-xl flex items-center justify-center shrink-0 text-gold-primary text-xs font-black group-hover:bg-gold-primary group-hover:text-black transition-all">04</div>
+                    <span class="text-xs font-bold text-neutral-400 leading-relaxed uppercase tracking-wide">Phần thưởng sẽ được cộng trực tiếp vào ví sau khi kết thúc trận đấu.</span>
                 </li>
             </ul>
         </div>

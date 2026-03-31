@@ -6,14 +6,14 @@
 @section('content')
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Breadcrumb -->
-    <nav class="flex mb-8 text-[10px] font-black text-text-muted overflow-x-auto whitespace-nowrap pb-2 uppercase tracking-[0.2em]">
-        <a class="hover:text-primary flex items-center transition-colors" href="{{ route('home') }}">
-            <img src="{{ asset('images/summer/saobien1.png') }}" alt="Starfish" class="w-4 h-4 mr-2"> Trang chủ
+    <nav class="flex mb-8 text-[10px] font-black text-text-muted overflow-x-auto whitespace-nowrap pb-2 uppercase tracking-[0.3em]">
+        <a class="hover:text-gold-primary flex items-center transition-colors" href="{{ route('home') }}">
+            <span class="material-icons text-sm mr-2 text-gold-primary">home</span> Trang chủ
         </a>
         <span class="mx-3 text-white/10">/</span>
-        <a class="hover:text-primary transition-colors font-black text-text-secondary" href="{{ route('products.index', ['category' => $product->category_id]) }}">{{ $product->category->title }}</a>
+        <a class="hover:text-gold-primary transition-colors font-black text-text-secondary" href="{{ route('products.index', ['category' => $product->category_id]) }}">{{ $product->category->title }}</a>
         <span class="mx-3 text-white/10">/</span>
-        <span class="text-primary font-black drop-shadow-[0_0_8px_rgba(34,197,94,0.3)]">ID #{{ $product->id }}</span>
+        <span class="text-gold-primary font-black drop-shadow-[0_0_8px_rgba(251,204,5,0.3)] uppercase">MS #{{ $product->id }}</span>
     </nav>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -36,24 +36,24 @@
                     </div>
 
                     @if(!empty($product->images) && count($product->images) > 1)
-                    <button onclick="moveSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-bg-dark/80 hover:bg-primary text-text-primary p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all shadow-lg z-20 backdrop-blur-md border border-border">
+                    <button onclick="moveSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-gold-primary text-white hover:text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all shadow-lg z-20 backdrop-blur-md border border-gold-border">
                         <span class="material-icons">chevron_left</span>
                     </button>
-                    <button onclick="moveSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-bg-dark/80 hover:bg-primary text-text-primary p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all shadow-lg z-20 backdrop-blur-md border border-border">
+                    <button onclick="moveSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-gold-primary text-white hover:text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all shadow-lg z-20 backdrop-blur-md border border-gold-border">
                         <span class="material-icons">chevron_right</span>
                     </button>
-                    <div class="absolute bottom-4 right-4 bg-bg-dark/80 backdrop-blur-md text-text-primary text-[10px] font-black px-4 py-1.5 rounded-full z-20 border border-border uppercase tracking-widest">
-                        <span id="current-slide" class="text-primary">1</span> / {{ count($product->images) }}
+                    <div class="absolute bottom-4 right-4 bg-black/80 backdrop-blur-md text-white text-[10px] font-black px-4 py-1.5 rounded-full z-20 border border-gold-border uppercase tracking-widest">
+                        <span id="current-slide" class="text-gold-primary">1</span> / {{ count($product->images) }}
                     </div>
                     @endif
                 </div>
 
                 @if(!empty($product->images) && count($product->images) > 1)
-                <div class="px-4 pb-4 pt-3 bg-bg-dark/40 backdrop-blur-md border-t border-border">
+                <div class="px-4 pb-4 pt-3 bg-black/40 backdrop-blur-md border-t border-gold-border">
                     <div class="flex gap-3 overflow-x-auto pb-2 no-scrollbar scroll-smooth" id="carousel-thumbnails">
                         @foreach($product->images as $index => $image)
                         <button type="button" onclick="scrollToSlide({{ $index }})"
-                            class="relative shrink-0 w-20 h-14 rounded-xl overflow-hidden border-2 transition-all thumbnail-btn {{ $index === 0 ? 'border-primary shadow-[0_0_15px_rgba(34,197,94,0.4)]' : 'border-border opacity-40 hover:opacity-100 hover:border-primary/50' }}"
+                            class="relative shrink-0 w-20 h-14 rounded-xl overflow-hidden border-2 transition-all thumbnail-btn {{ $index === 0 ? 'border-gold-primary shadow-[0_0_15px_rgba(251,204,5,0.4)]' : 'border-gold-border opacity-40 hover:opacity-100 hover:border-gold-primary/50' }}"
                             data-index="{{ $index }}">
                             <img src="{{ url('storage/'.$image) }}" alt="Thumbnail {{ $index + 1 }}" class="w-full h-full object-cover">
                         </button>
@@ -65,22 +65,19 @@
 
             <!-- Product Info Card -->
             <div class="bg-bg-card rounded-2xl p-8 shadow-2xl border border-border relative overflow-hidden">
-                <h1 class="text-xl md:text-3xl font-black mb-6 text-text-primary uppercase tracking-tight relative z-20 leading-tight flex items-center gap-3">
-                    <img src="{{ asset('images/summer/saobien2.png') }}" alt="Icon" class="w-8 h-8 md:w-10 md:h-10 animate-float">
+                <h1 class="text-xl md:text-3xl font-black mb-6 text-white uppercase tracking-tight relative z-20 leading-tight flex items-center gap-4 italic">
+                    <span class="w-1.5 h-8 bg-gold-primary skew-x-[-15deg]"></span>
                     {{ $product->title }}
                 </h1>
-                
-                <!-- Flying birds decorative image -->
-                <img src="{{ asset('images/summer/chim.png') }}" alt="Birds" class="absolute top-4 right-4 w-20 md:w-32 opacity-40 pointer-events-none drop-shadow-lg animate-float">
-                <div class="flex flex-wrap items-center justify-between gap-8 py-8 border-y border-border relative z-20">
-                    <div class="space-y-2">
+                <div class="flex flex-wrap items-center justify-between gap-8 py-8 border-y border-gold-border relative z-20">
+                    <div class="space-y-3">
                         @if($product->sell_price && $product->sell_price > $product->getFinalPrice())
                         <span class="text-text-muted line-through text-lg font-bold">{{ number_format($product->sell_price) }}đ</span>
                         @endif
-                        <div class="flex items-baseline gap-3">
-                            <span class="text-3xl md:text-5xl font-black text-text-primary drop-shadow-[0_0_15px_rgba(34,197,94,0.4)]">{{ number_format($product->getFinalPrice()) }} <span class="text-lg">đ</span></span>
+                        <div class="flex items-baseline gap-4">
+                            <span class="text-3xl md:text-6xl font-black text-gold-primary drop-shadow-[0_0_20px_rgba(251,204,5,0.4)]">{{ number_format($product->getFinalPrice()) }} <span class="text-lg font-bold ml-0.5">đ</span></span>
                             @if($product->getDiscountPercent())
-                            <span class="bg-primary text-bg-dark text-[10px] md:text-xs font-black px-3 py-1 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.4)] uppercase tracking-widest">SIÊU GIẢM GIÁ</span>
+                            <span class="bg-red-600 text-white text-[10px] md:text-xs font-black px-4 py-1.5 rounded-full shadow-lg uppercase tracking-widest italic">-{{ number_format($product->getDiscountPercent()) }}% OFF</span>
                             @endif
                         </div>
                     </div>
@@ -91,24 +88,24 @@
                         </span>
                         @endif
                         @auth
-                        <a href="{{ route('checkout', $product->slug) }}" class="w-full sm:w-auto btn-esport py-5 px-12 rounded-2xl flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 uppercase tracking-widest text-base font-black border-none shadow-2xl shadow-primary/30 active:scale-95 transition-all relative overflow-hidden group">
-                            <img src="{{ asset('images/summer/saobien3.png') }}" alt="Icon" class="w-10 h-10 md:w-7 md:h-7 animate-float">
-                            <span class="text-lg md:text-base">MUA NGAY</span>
+                        <a href="{{ route('checkout', $product->slug) }}" class="w-full sm:w-auto py-5 px-14 rounded-2xl bg-linear-to-r from-gold-primary to-amber-600 text-black flex items-center justify-center gap-4 uppercase tracking-[0.2em] text-lg font-black shadow-2xl shadow-gold-primary/30 active:scale-95 transition-all relative overflow-hidden group">
+                            <span class="material-icons text-2xl group-hover:scale-110 transition-transform">shopping_cart</span>
+                            <span>MUA NGAY</span>
                         </a>
                         @else
-                        <a href="{{ route('login') }}" class="w-full sm:w-auto btn-esport py-5 px-12 rounded-2xl flex items-center justify-center gap-4 uppercase tracking-widest text-base font-black border-none group">
-                            <img src="{{ asset('images/summer/saobien4.png') }}" alt="Icon" class="w-8 h-8 md:w-6 md:h-6 animate-pulse">
-                            ĐĂNG NHẬP ĐỂ MUA
+                        <a href="{{ route('login') }}" class="w-full sm:w-auto py-5 px-14 rounded-2xl bg-white/5 border border-gold-primary/50 text-gold-primary flex items-center justify-center gap-4 uppercase tracking-[0.2em] text-lg font-black hover:bg-gold-primary hover:text-black transition-all group">
+                            <span class="material-icons text-2xl">login</span>
+                            <span>ĐĂNG NHẬP</span>
                         </a>
                         @endauth
                     </div>
                 </div>
-                <div class="mt-8 flex flex-col md:flex-row items-center justify-between text-text-primary text-[10px] font-black uppercase tracking-widest gap-4">
-                    <div class="flex items-center gap-6">
-                        <span class="flex items-center gap-2 transition-colors hover:text-primary"><span class="material-icons text-sm text-primary/60">visibility</span> {{ rand(100, 5000) }} lượt xem</span>
-                        <span class="flex items-center gap-2 transition-colors hover:text-primary"><span class="material-icons text-sm text-primary/60">schedule</span> Đăng {{ $product->created_at->diffForHumans() }}</span>
+                <div class="mt-8 flex flex-col md:flex-row items-center justify-between text-white/60 text-[10px] font-black uppercase tracking-widest gap-6">
+                    <div class="flex items-center gap-8">
+                        <span class="flex items-center gap-2 transition-colors hover:text-gold-primary"><span class="material-icons text-sm text-gold-primary/60">visibility</span> {{ rand(100, 5000) }} lượt xem</span>
+                        <span class="flex items-center gap-2 transition-colors hover:text-gold-primary"><span class="material-icons text-sm text-gold-primary/60">schedule</span> Cập nhật {{ $product->updated_at->diffForHumans() }}</span>
                     </div>
-                    <span class="text-primary bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20">MÃ SẢN PHẨM: #{{ $product->id }}</span>
+                    <span class="text-gold-primary bg-gold-primary/10 px-6 py-2 rounded-full border border-gold-primary/30 shadow-[0_0_15px_rgba(251,204,5,0.1)]">Mã số: #{{ $product->id }}</span>
                 </div>
             </div>
         </div>
@@ -117,37 +114,37 @@
         <div class="lg:col-span-5 space-y-6">
             <div class="bg-bg-card rounded-2xl p-8 shadow-2xl border border-border h-full relative overflow-hidden">
                 <div class="flex items-center gap-3 mb-8">
-                    <span class="material-icons text-primary drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]">info</span>
-                    <h2 class="text-xl font-black text-text-primary uppercase tracking-tight">THÔNG TIN CHI TIẾT</h2>
+                    <span class="material-icons text-gold-primary drop-shadow-[0_0_10px_rgba(251,204,5,0.5)]">description</span>
+                    <h2 class="text-xl font-black text-white uppercase tracking-tight italic">THÀNH PHẦN TÀI KHOẢN</h2>
                 </div>
-                <div class="prose prose-invert prose-emerald max-w-none space-y-6">
-                    <div class="bg-bg-dark/50 backdrop-blur-md border border-border p-6 rounded-2xl border-l-4 border-l-primary shadow-xl">
-                        <div class="font-bold text-text-secondary leading-relaxed">
+                <div class="prose prose-invert prose-amber max-w-none space-y-6">
+                    <div class="bg-black/50 backdrop-blur-md border border-gold-border p-8 rounded-2xl border-l-4 border-l-gold-primary shadow-2xl">
+                        <div class="font-bold text-text-secondary leading-relaxed text-base">
                             {!! $product->content !!}
                         </div>
-                        <div class="mt-6 pt-4 border-t border-border">
-                            <a href="https://zalo.me/g/wilgna867" class="text-primary font-black hover:text-text-primary transition-colors text-xs flex items-center gap-2">
-                                <span class="material-icons text-sm">group</span> THAM GIA GROUP ZALO NHẬN MÃ GIẢM GIÁ
+                        <div class="mt-8 pt-6 border-t border-gold-border/40">
+                            <a href="https://zalo.me/g/wilgna867" class="text-gold-primary font-black hover:text-white transition-all text-sm flex items-center gap-3 group">
+                                <span class="material-icons text-lg group-hover:rotate-12 transition-transform">group</span> THAM GIA CỘNG ĐỒNG NHẬN QUÀ VIP
                             </a>
                         </div>
                     </div>
-                    <div class="space-y-6 pt-6">
-                        <h3 class="text-lg font-black flex items-center gap-3 text-text-primary uppercase tracking-tight">
-                            <span class="material-icons text-primary">verified_user</span>
-                            CAM KẾT & ĐIỀU KHOẢN
+                    <div class="space-y-8 pt-8">
+                        <h3 class="text-lg font-black flex items-center gap-3 text-white uppercase tracking-tight italic">
+                            <span class="material-icons text-gold-primary">gpp_good</span>
+                            CHÍNH SÁCH BẢO HÀNH
                         </h3>
-                        <ol class="space-y-4 text-text-muted text-sm font-bold">
-                            <li class="flex gap-3 leading-relaxed">
-                                <span class="text-primary font-black">01.</span> SĐT tới hạn đổi SĐT Quý khách vui lòng liên hệ shop để lấy code thay đổi SĐT.
+                        <ol class="space-y-5 text-text-muted text-sm font-bold">
+                            <li class="flex gap-4 leading-relaxed">
+                                <span class="bg-gold-primary/10 text-gold-primary w-6 h-6 shrink-0 rounded-md flex items-center justify-center text-xs">01</span> SĐT tới hạn đổi SĐT Quý khách vui lòng liên hệ shop để lấy code thay đổi SĐT.
                             </li>
-                            <li class="flex gap-3 leading-relaxed">
-                                <span class="text-primary font-black">02.</span> Tài khoản sạch, không tranh chấp, bảo hành trọn đời.
+                            <li class="flex gap-4 leading-relaxed">
+                                <span class="bg-gold-primary/10 text-gold-primary w-6 h-6 shrink-0 rounded-md flex items-center justify-center text-xs">02</span> Tài khoản sạch, không tranh chấp, bảo hành trọn đời.
                             </li>
-                            <li class="flex gap-3 leading-relaxed">
-                                <span class="text-primary font-black">03.</span> Hỗ trợ giao dịch trung gian hoặc trực tiếp tại cửa hàng.
+                            <li class="flex gap-4 leading-relaxed">
+                                <span class="bg-gold-primary/10 text-gold-primary w-6 h-6 shrink-0 rounded-md flex items-center justify-center text-xs">03</span> Hỗ trợ giao dịch trung gian hoặc trực tiếp tại cửa hàng.
                             </li>
-                            <li class="flex gap-3 leading-relaxed">
-                                <span class="text-primary font-black">04.</span> Số CCCD, bảo hành trọn đời ACC.
+                            <li class="flex gap-4 leading-relaxed">
+                                <span class="bg-gold-primary/10 text-gold-primary w-6 h-6 shrink-0 rounded-md flex items-center justify-center text-xs">04</span> Số CCCD, bảo hành trọn đời ACC.
                             </li>
                         </ol>
                     </div>

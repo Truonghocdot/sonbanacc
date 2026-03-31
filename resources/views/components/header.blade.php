@@ -13,9 +13,34 @@
     <div class="container mx-auto px-2 md:px-4 py-2 md:py-3 flex items-center justify-between relative z-40">
         <div class="flex items-center gap-8">
             <!-- Logo -->
-            <a href="{{ route('home') }}" class="flex items-center gap-2 group relative">
-                <img src="{{ asset('images/logo.png') }}" alt="SonBanAcc Logo" class="h-10 md:h-12 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_0_10px_rgba(255,215,0,0.3)]">
-                <div class="absolute -inset-2 bg-primary/10 blur-xl rounded-full scale-0 group-hover:scale-110 transition-transform duration-700 opacity-0 group-hover:opacity-100"></div>
+            <a href="{{ route('home') }}" class="flex items-center gap-3 group relative py-1">
+                <div class="relative shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
+                    <!-- Premium SVG Emblem -->
+                    <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[0_0_15px_rgba(251,204,5,0.4)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[10deg]">
+                        <defs>
+                            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FBCC05;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#FFF3B0;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#B48A00;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M50 5 L85 25 L85 75 L50 95 L15 75 L15 25 Z" fill="none" stroke="url(#goldGrad)" stroke-width="4" stroke-linejoin="round" />
+                        <path d="M50 15 L78 30 L78 70 L50 85 L22 70 L22 30 Z" fill="#0A0A0A" stroke="url(#goldGrad)" stroke-width="1" />
+                        <text x="50" y="65" font-family="Outfit, sans-serif" font-weight="900" font-size="38" fill="url(#goldGrad)" text-anchor="middle" style="text-shadow: 0 0 10px rgba(251,204,5,0.5)">S</text>
+                    </svg>
+                    <!-- Animated Scanline on Icon -->
+                    <div class="absolute inset-0 bg-linear-to-b from-transparent via-white/20 to-transparent h-1/2 w-full -translate-y-full group-hover:animate-scanline pointer-events-none"></div>
+                </div>
+                
+                <div class="flex flex-col -gap-1">
+                    <span class="text-xl md:text-2xl font-black italic tracking-tighter text-white uppercase leading-none group-hover:text-gold-primary transition-colors">
+                        SONBAN<span class="text-gold-primary group-hover:text-white">ACC</span>
+                    </span>
+                    <span class="text-[8px] md:text-[9px] font-black tracking-[0.4em] text-gold-primary/70 uppercase leading-none mt-1 pl-0.5">PREMIUM ESPORT</span>
+                </div>
+
+                <!-- Hover background glow -->
+                <div class="absolute -inset-x-4 -inset-y-2 bg-gold-primary/5 blur-2xl rounded-full scale-0 group-hover:scale-100 transition-transform duration-700 opacity-0 group-hover:opacity-100 -z-10"></div>
             </a>
 
             <!-- Desktop Navigation -->
@@ -23,9 +48,9 @@
                 @php
                 $navItems = [
                 ['route' => 'home', 'icon' => 'home', 'label' => 'TRANG CHỦ'],
-                ['route' => 'products.index', 'icon' => 'shopping_bag', 'label' => 'SẢN PHẨM'],
+                ['route' => 'products.index', 'icon' => 'shopping_bag', 'label' => 'CỬA HÀNG'],
                 ['route' => 'deposit', 'icon' => 'account_balance_wallet', 'label' => 'NẠP TIỀN'],
-                ['route' => 'lucky-wheel.index', 'icon' => 'surfing', 'label' => 'HỨNG DỪA ĐÓN QUÀ'],
+                ['route' => 'lucky-wheel.index', 'icon' => 'videogame_asset', 'label' => 'VÒNG QUAY'],
                 ['route' => 'news.index', 'icon' => 'newspaper', 'label' => 'TIN TỨC'],
                 ['route' => 'policy', 'icon' => 'policy', 'label' => 'CHÍNH SÁCH'],
                 ];
@@ -43,30 +68,22 @@
         <div class="flex items-center gap-3">
             @auth
             <!-- Balance Display -->
-            <div class="flex flex-col items-end px-2 md:px-4 py-1 md:py-2 rounded-lg bg-bg-card border border-border hover:border-primary/50 transition-all group cursor-pointer relative overflow-hidden shadow-inner">
+            <div class="flex flex-col items-end px-2 md:px-4 py-1 md:py-2 rounded-lg bg-black-surface border border-gold-border hover:border-gold-primary/50 transition-all group cursor-pointer relative overflow-hidden shadow-inner">
                 <span class="hidden md:block text-[9px] text-text-muted uppercase tracking-widest font-black">Số dư</span>
-                <span class="text-primary font-black text-sm md:text-lg drop-shadow-[0_0_8px_rgba(34,197,94,0.3)]">
+                <span class="text-gold-primary font-black text-sm md:text-lg drop-shadow-[0_0_8px_rgba(251,204,5,0.3)]">
                     {{ number_format(auth()->user()->wallet()->value('balance'), 0, ',', '.') }} <span class="text-[10px] md:text-sm">đ</span>
                 </span>
             </div>
 
             <!-- User Profile -->
-            <a href="{{ route('user.profile') }}" class="flex items-center gap-1 md:gap-2 bg-bg-card hover:bg-white/5 px-2 md:px-4 py-1 md:py-2 rounded-lg border border-border cursor-pointer transition-all hover:border-primary/50">
-                <span class="material-icons text-primary text-xl md:text-2xl">account_circle</span>
+            <a href="{{ route('user.profile') }}" class="flex items-center gap-1 md:gap-2 bg-black-surface hover:bg-white/5 px-2 md:px-4 py-1 md:py-2 rounded-lg border border-gold-border cursor-pointer transition-all hover:border-gold-primary/50">
+                <span class="material-icons text-gold-primary text-xl md:text-2xl">account_circle</span>
                 <div class="flex flex-col">
                     <span class="text-text-primary text-[10px] md:text-[12px] font-bold max-w-[40px] md:max-w-none truncate">{{ auth()->user()->name }}</span>
                     <span class="text-[8px] md:text-[10px] text-text-muted font-black tracking-tighter">ID: {{ auth()->user()->id }}</span>
                 </div>
             </a>
-
-            <!-- Logout Button (Desktop) -->
-            <form action="{{ route('logout') }}" method="POST" class="hidden md:block">
-                @csrf
-                <button type="submit" class="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all border border-white/10 hover:border-white/30" title="Đăng xuất">
-                    <span class="material-icons text-xl">logout</span>
-                </button>
-            </form>
-            @else
+@else
             <!-- Login Button -->
             <a href="{{ route('login') }}" class="flex items-center gap-1.5 md:gap-2 btn-esport px-3 md:px-5 py-1.5 md:py-2 rounded-lg font-black transition-all shadow-lg group text-[10px] md:text-xs">
                 <span class="material-icons group-hover:rotate-12 transition-transform text-sm md:text-base">login</span>
@@ -75,23 +92,23 @@
             @endauth
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 rounded-lg bg-white/15 hover:bg-white/25 transition-all border border-white/20">
+            <button id="mobile-menu-btn" class="lg:hidden text-white p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all border border-white/10">
                 <span class="material-icons text-2xl">menu</span>
             </button>
         </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden border-t border-white/5 bg-neutral-950/95 backdrop-blur-xl">
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-white/5 bg-black/95 backdrop-blur-xl">
         <nav class="container mx-auto px-4 py-4 flex flex-col gap-1">
             @auth
             <!-- Mobile User Info -->
             <div class="p-4 mb-3 rounded-2xl bg-white/5 border border-white/10 shadow-2xl relative overflow-hidden group">
-                <div class="absolute -top-10 -right-10 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+                <div class="absolute -top-10 -right-10 w-24 h-24 bg-gold-primary/10 rounded-full blur-2xl"></div>
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-3">
                         <div class="w-12 h-12 rounded-full bg-neutral-900 flex items-center justify-center border border-white/10 shadow-inner">
-                            <span class="material-icons text-primary text-3xl">account_circle</span>
+                            <span class="material-icons text-gold-primary text-3xl">account_circle</span>
                         </div>
                         <div>
                             <div class="font-black text-white text-lg tracking-tight">{{ auth()->user()->name }}</div>
@@ -102,7 +119,7 @@
                 <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between relative z-10">
                     <div>
                         <div class="text-[9px] text-neutral-600 uppercase font-black tracking-[0.2em]">Ví tài khoản</div>
-                        <div class="text-primary font-black text-2xl tracking-tighter drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">
+                        <div class="text-gold-primary font-black text-2xl tracking-tighter drop-shadow-[0_0_8px_rgba(251,204,5,0.4)]">
                             {{ number_format(auth()->user()->wallet()->value('balance'), 0, ',', '.') }}<span class="text-sm ml-1">đ</span>
                         </div>
                     </div>
@@ -116,7 +133,7 @@
             @foreach($navItems as $item)
             <a class="flex items-center gap-3 text-white/90 hover:text-white hover:bg-white/10 font-semibold py-3 px-4 rounded-lg transition-all" href="{{ route($item['route']) }}">
                 <span class="material-icons text-xl">{{ $item['icon'] }}</span>
-                <span class="tracking-wide">{{ str_replace('TRANG CHỦ', 'Trang chủ', str_replace('SẢN PHẨM', 'Sản phẩm', str_replace('NẠP TIỀN', 'Nạp tiền', str_replace('LƯỚT SÓNG', 'Lướt sóng', str_replace('TIN TỨC', 'Tin tức', str_replace('CHÍNH SÁCH', 'Chính sách', $item['label'])))))) }}</span>
+                <span class="tracking-wide">{{ $item['label'] }}</span>
                 <span class="material-icons ml-auto text-white/40">chevron_right</span>
             </a>
             @endforeach
@@ -138,20 +155,6 @@
             </form>
             @endauth
         </nav>
-    </div>
-    <!-- Header Waves -->
-    <div class="absolute bottom-0 left-0 w-full h-8 overflow-hidden pointer-events-none opacity-40 z-0">
-        <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-            <defs>
-                <path id="header-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-            </defs>
-            <g class="wave-animation">
-                <use xlink:href="#header-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-                <use xlink:href="#header-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                <use xlink:href="#header-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                <use xlink:href="#header-wave" x="48" y="7" fill="#fff" />
-            </g>
-        </svg>
     </div>
 </header>
 
@@ -195,5 +198,15 @@
     .nav-link.active {
         background: rgba(255, 255, 255, 0.05);
         color: var(--color-primary) !important;
+    }
+
+    @keyframes scanline {
+        0% { transform: translateY(-100%); opacity: 0; }
+        50% { opacity: 0.5; }
+        100% { transform: translateY(200%); opacity: 0; }
+    }
+
+    .animate-scanline {
+        animation: scanline 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 </style>

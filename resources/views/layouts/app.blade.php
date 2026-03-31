@@ -83,13 +83,12 @@
 </head>
 
 <body class="min-h-screen text-text-primary selection:bg-primary/30 selection:text-white overflow-x-hidden">
-    <!-- Animated background particles/glows -->
+    <!-- Esport Background Elements -->
     <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div class="sun-glow"></div>
-        <div class="cloud-element" style="width: 400px; height: 150px; top: 10%; left: -10%; animation: drift-right 80s infinite linear;"></div>
-        <div class="cloud-element" style="width: 300px; height: 100px; top: 40%; left: 80%; animation: drift-right 60s infinite linear reverse;"></div>
-        <div class="cloud-element" style="width: 500px; height: 200px; bottom: 5%; left: 20%; animation: drift-right 100s infinite linear;"></div>
-        <div class="beach-bg-highlight"></div>
+        <div class="esport-grid"></div>
+        <div class="scan-line"></div>
+        <div class="gold-orb" style="top: -10%; right: -10%; opacity: 0.6;"></div>
+        <div class="gold-orb" style="bottom: -20%; left: -10%; width: 800px; height: 800px; opacity: 0.4;"></div>
     </div>
 
     <!-- Content Wrapper -->
@@ -107,52 +106,22 @@
             @yield('content')
         </main>
 
-        <!-- Sea Waves Footer Component -->
-        <div class="sea-footer">
-            <div class="absolute top-0 left-0 w-full h-[100px] overflow-hidden leading-none transform rotate-180 pointer-events-none">
-                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                    <defs>
-                        <path id="footer-top-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                    </defs>
-                    <g class="wave-animation">
-                        <use xlink:href="#footer-top-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-                        <use xlink:href="#footer-top-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                        <use xlink:href="#footer-top-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                        <use xlink:href="#footer-top-wave" x="48" y="7" fill="#fff" />
-                    </g>
-                </svg>
-            </div>
-            
+        <!-- Esport Footer Wrapper -->
+        <div class="relative mt-20">
+            <div class="esport-divider"></div>
             @include('components.footer')
-            
-            <div class="coconut-tree coconut-tree-left"></div>
-            <div class="coconut-tree coconut-tree-right"></div>
-
-            <!-- Animated Wave Overlay -->
-            <div class="absolute bottom-0 left-0 w-full h-[150px] opacity-30 pointer-events-none">
-                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                    <defs>
-                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                    </defs>
-                    <g class="wave-animation">
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-                    </g>
-                </svg>
-            </div>
         </div>
+
 
         <!-- Floating Action Buttons -->
         <div class="fixed bottom-4 md:bottom-6 right-4 md:right-6 flex flex-col gap-2 md:gap-3 z-50">
-            <a href="https://www.facebook.com/le.vietanh.939173" class="w-10 h-10 md:w-12 md:h-12 bg-bg-card border border-primary/20 text-primary rounded-full flex items-center justify-center hover:scale-110 transition shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:bg-primary hover:text-bg-dark group">
+            <a href="https://www.facebook.com/le.vietanh.939173" class="w-10 h-10 md:w-12 md:h-12 bg-black-surface border border-gold-primary/20 text-gold-primary rounded-full flex items-center justify-center hover:scale-110 transition shadow-[0_0_15px_rgba(251,204,5,0.2)] hover:bg-gold-primary hover:text-black group">
                 <span class="material-icons text-xl md:text-2xl">message</span>
             </a>
-            <a href="tel:0327182537" class="w-10 h-10 md:w-12 md:h-12 bg-bg-card border border-primary/20 text-primary rounded-full flex items-center justify-center hover:scale-110 transition shadow-[0_0_15px_rgba(34,197,94,0.3)] hover:bg-primary hover:text-bg-dark">
+            <a href="tel:0327182537" class="w-10 h-10 md:w-12 md:h-12 bg-black-surface border border-gold-primary/20 text-gold-primary rounded-full flex items-center justify-center hover:scale-110 transition shadow-[0_0_15px_rgba(251,204,5,0.2)] hover:bg-gold-primary hover:text-black">
                 <span class="material-icons text-xl md:text-2xl">phone</span>
             </a>
-            <a href="https://zalo.me/g/wilgna867" class="w-10 h-10 md:w-12 md:h-12 bg-bg-card border border-primary/20 rounded-full flex items-center justify-center hover:scale-110 transition shadow-[0_0_15px_rgba(34,197,94,0.3)] p-1">
+            <a href="https://zalo.me/g/wilgna867" class="w-10 h-10 md:w-12 md:h-12 bg-black-surface border border-gold-primary/20 rounded-full flex items-center justify-center hover:scale-110 transition shadow-[0_0_15px_rgba(251,204,5,0.2)] p-1">
                 <img src="{{ asset('images/zalo.png') }}" alt="Zalo" class="w-full h-full rounded-full grayscale hover:grayscale-0 transition-all" loading="lazy" decoding="async">
             </a>
         </div>
@@ -171,13 +140,10 @@
             const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
             const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
 
-            const sun = document.querySelector('.sun-glow');
-            if (sun) sun.style.transform = `translate(${moveX * 2}px, ${moveY * 2}px)`;
-            
-            const clouds = document.querySelectorAll('.cloud-element');
-            clouds.forEach((cloud, index) => {
-                const speed = (index + 1) * 0.5;
-                cloud.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
+            const orbs = document.querySelectorAll('.gold-orb');
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 2;
+                orb.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
             });
         });
     </script>
