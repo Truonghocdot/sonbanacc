@@ -56,9 +56,11 @@ class ProductsTable
                     ->searchable(),
                 SelectFilter::make('status')
                     ->label('Trạng thái')
-                    ->options(Product::statusOptions()),
+                    ->options([
+                        Product::STATUS_UNSOLD => 'Chưa bán',
+                        Product::STATUS_SOLD => 'Đã bán',
+                    ]),
             ])
-            ->defaultSort('created_at', 'desc')
-        ;
+            ->defaultSort('created_at', 'desc');
     }
 }
