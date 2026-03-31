@@ -15,74 +15,80 @@ class RevenueChart extends ChartWidget
     {
         $activeFilter = $this->filter;
 
-        $query = Transaction::where('status', 1);
+        $start = now()->startOfMonth();
+        $end = now()->endOfMonth();
+        $dbFormat = '%Y-%m-%d';
+        $interval = 'day';
 
         switch ($activeFilter) {
             case 'today':
                 $start = now()->startOfDay();
                 $end = now()->endOfDay();
-                $format = 'H:00';
-                $dbFormat = '%H:00';
+                $dbFormat = '%Y-%m-%d %H:00';
                 $interval = 'hour';
                 break;
             case 'week':
                 $start = now()->subDays(6)->startOfDay();
                 $end = now()->endOfDay();
-                $format = 'd/m';
-                $dbFormat = '%Y-%m-%d';
                 $interval = 'day';
                 break;
             case 'year':
                 $start = now()->startOfYear();
                 $end = now()->endOfYear();
-                $format = 'M';
                 $dbFormat = '%Y-%m';
                 $interval = 'month';
                 break;
-            case 'month':
-            default:
-                $start = now()->startOfMonth();
-                $end = now()->endOfMonth();
-                $format = 'd/m';
-                $dbFormat = '%Y-%m-%d';
-                $interval = 'day';
-                break;
         }
 
-        $data = $query->whereBetween('created_at', [$start, $end])
+        $revenueData = \App\Models\Order::where('status', \App\Models\Order::STATUS_COMPLETED)
+            ->whereBetween('completed_at', [$start, $end])
             ->select(
-                DB::raw("DATE_FORMAT(created_at, '{$dbFormat}') as period"),
-                DB::raw('SUM(amount) as total')
+                DB::raw("DATE_FORMAT(completed_at, '{$dbFormat}') as period"),
+                DB::raw('SUM(final_amount) as total')
             )
             ->groupBy('period')
-            ->orderBy('period')
             ->pluck('total', 'period')
             ->toArray();
 
+        $costData = \App\Models\Order::where('orders.status', \App\Models\Order::STATUS_COMPLETED)
+            ->join('products', 'orders.product_id', '=', 'products.id')
+            ->whereBetween('orders.completed_at', [$start, $end])
+            ->select(
+                DB::raw("DATE_FORMAT(orders.completed_at, '{$dbFormat}') as period"),
+                DB::raw('SUM(products.cost_price) as total_cost')
+            )
+            ->groupBy('period')
+            ->pluck('total_cost', 'period')
+            ->toArray();
+
         $labels = [];
-        $totals = [];
+        $revenues = [];
+        $profits = [];
 
         if ($interval === 'hour') {
             for ($i = 0; $i <= 23; $i++) {
-                $hour = str_pad($i, 2, '0', STR_PAD_LEFT) . ':00';
-                $labels[] = $hour;
-                $totals[] = $data[$hour] ?? 0;
+                $period = now()->format('Y-m-d ') . str_pad($i, 2, '0', STR_PAD_LEFT) . ':00';
+                $labels[] = str_pad($i, 2, '0', STR_PAD_LEFT) . ':00';
+                $revenues[] = $revenueData[$period] ?? 0;
+                $profits[] = ($revenueData[$period] ?? 0) - ($costData[$period] ?? 0);
                 if (now()->format('H') == $i && $activeFilter === 'today') break;
             }
         } elseif ($interval === 'day') {
             for ($date = clone $start; $date->lte($end); $date->addDay()) {
-                $dateString = $date->format('Y-m-d');
+                $period = $date->format('Y-m-d');
                 $labels[] = $date->format('d/m');
-                $totals[] = $data[$dateString] ?? 0;
+                $revenues[] = $revenueData[$period] ?? 0;
+                $profits[] = ($revenueData[$period] ?? 0) - ($costData[$period] ?? 0);
                 if ($date->isToday() && $activeFilter !== 'year') break;
             }
         } elseif ($interval === 'month') {
             for ($i = 1; $i <= 12; $i++) {
                 $month = clone $start;
                 $month->month($i);
-                $monthString = $month->format('Y-m');
-                $labels[] = 'Tháng ' . $i;
-                $totals[] = $data[$monthString] ?? 0;
+                $period = $month->format('Y-m');
+                $labels[] = 'T' . $i;
+                $revenues[] = $revenueData[$period] ?? 0;
+                $profits[] = ($revenueData[$period] ?? 0) - ($costData[$period] ?? 0);
                 if ($month->isCurrentMonth()) break;
             }
         }
@@ -91,10 +97,18 @@ class RevenueChart extends ChartWidget
             'datasets' => [
                 [
                     'label' => 'Doanh thu (VND)',
-                    'data' => $totals,
+                    'data' => $revenues,
                     'fill' => 'start',
                     'borderColor' => 'rgb(75, 192, 192)',
                     'backgroundColor' => 'rgba(75, 192, 192, 0.2)',
+                    'tension' => 0.3,
+                ],
+                [
+                    'label' => 'Lợi nhuận (VND)',
+                    'data' => $profits,
+                    'fill' => 'start',
+                    'borderColor' => 'rgb(251, 204, 5)',
+                    'backgroundColor' => 'rgba(251, 204, 5, 0.2)',
                     'tension' => 0.3,
                 ],
             ],

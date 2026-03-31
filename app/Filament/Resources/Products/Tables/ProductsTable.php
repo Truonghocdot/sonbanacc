@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Products\Tables;
 use App\Models\Product;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 
 class ProductsTable
@@ -32,6 +33,11 @@ class ProductsTable
                     ->label('Giá bán')
                     ->searchable()
                     ->limit(50),
+                TextColumn::make('cost_price')
+                    ->label('Giá nhập')
+                    ->searchable()
+                    ->color('warning')
+                    ->limit(50),
                 TextColumn::make('sale_price')
                     ->label('Giá sau giảm giá')
                     ->searchable()
@@ -42,6 +48,15 @@ class ProductsTable
             ])
             ->recordActions([
                 EditAction::make(),
+            ])
+            ->filters([
+                SelectFilter::make('category_id')
+                    ->label('Danh mục')
+                    ->relationship('category', 'title')
+                    ->searchable(),
+                SelectFilter::make('status')
+                    ->label('Trạng thái')
+                    ->options(Product::statusOptions()),
             ])
             ->defaultSort('created_at', 'desc')
         ;

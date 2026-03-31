@@ -14,11 +14,25 @@ class StatsOverview extends BaseWidget
 
     protected function getStats(): array
     {
-        $revenue = Transaction::where('status', 1)->sum('amount');
-        $monthlyRevenue = Transaction::where('status', 1)
-            ->whereMonth('created_at', now()->month)
-            ->whereYear('created_at', now()->year)
-            ->sum('amount');
+        $revenue = \App\Models\Order::where('status', \App\Models\Order::STATUS_COMPLETED)->sum('final_amount');
+        $monthlyRevenue = \App\Models\Order::where('status', \App\Models\Order::STATUS_COMPLETED)
+            ->whereMonth('completed_at', now()->month)
+            ->whereYear('completed_at', now()->year)
+            ->sum('final_amount');
+
+        $totalCost = \App\Models\Order::where('orders.status', \App\Models\Order::STATUS_COMPLETED)
+            ->join('products', 'orders.product_id', '=', 'products.id')
+            ->sum('products.cost_price');
+        
+        $monthlyCost = \App\Models\Order::where('orders.status', \App\Models\Order::STATUS_COMPLETED)
+            ->join('products', 'orders.product_id', '=', 'products.id')
+            ->whereMonth('orders.completed_at', now()->month)
+            ->whereYear('orders.completed_at', now()->year)
+            ->sum('products.cost_price');
+
+        $profit = $revenue - $totalCost;
+        $monthlyProfit = $monthlyRevenue - $monthlyCost;
+
         $totalUsers = User::where('role', 0)->count();
         $newUsers = User::where('role', 0)->whereMonth('created_at', now()->month)->count();
         $pendingTransactions = Transaction::where('status', 0)->count();
@@ -27,15 +41,26 @@ class StatsOverview extends BaseWidget
         // New Stats
         $stockCount = Product::where('status', Product::STATUS_UNSOLD)->count();
         $stockValue = Product::where('status', Product::STATUS_UNSOLD)
+            ->sum('cost_price'); // Using cost price for stock value is more accurate for bookkeeping
+        $stockPotentialValue = Product::where('status', Product::STATUS_UNSOLD)
             ->sum(\Illuminate\Support\Facades\DB::raw('COALESCE(sale_price, sell_price)'));
+        
         $luckyWheelPayout = \App\Models\LuckyWheelHistory::sum('prize_amount');
         $couponSpend = \App\Models\Order::where('status', \App\Models\Order::STATUS_COMPLETED)->sum('discount_amount');
 
         return [
-            Stat::make('Tổng doanh thu', Number::currency($revenue, 'VND'))
-                ->description('Tổng tiền giao dịch thành công')
+            Stat::make('Doanh thu (Bán hàng)', Number::currency($revenue, 'VND'))
+                ->description('Tổng tiền từ các đơn hàng thành công')
                 ->descriptionIcon('heroicon-m-banknotes')
                 ->color('success'),
+            Stat::make('Lợi nhuận gộp', Number::currency($profit, 'VND'))
+                ->description('Hiệu số giữa giá bán và giá nhập')
+                ->descriptionIcon('heroicon-m-arrow-trending-up')
+                ->color($profit >= 0 ? 'success' : 'danger'),
+            Stat::make('Lợi nhuận tháng này', Number::currency($monthlyProfit, 'VND'))
+                ->description('Lợi nhuận trong tháng ' . now()->month)
+                ->descriptionIcon('heroicon-m-calendar-days')
+                ->color($monthlyProfit >= 0 ? 'success' : 'danger'),
             Stat::make('Thu nhập tháng này', Number::currency($monthlyRevenue, 'VND'))
                 ->description('Doanh thu trong tháng ' . now()->month)
                 ->descriptionIcon('heroicon-m-calendar')
@@ -62,9 +87,13 @@ class StatsOverview extends BaseWidget
                 ->description('Tổng số acc chưa bán')
                 ->descriptionIcon('heroicon-m-archive-box')
                 ->color('warning'),
-            Stat::make('Giá trị tồn kho', Number::currency($stockValue, 'VND'))
-                ->description('Tổng giá trị acc chưa bán')
+            Stat::make('Giá vốn tồn kho', Number::currency($stockValue, 'VND'))
+                ->description('Tổng tiền vốn acc chưa bán')
                 ->descriptionIcon('heroicon-m-currency-dollar')
+                ->color('warning'),
+            Stat::make('Giá trị tồn kho', Number::currency($stockPotentialValue, 'VND'))
+                ->description('Doanh thu dự kiến từ kho')
+                ->descriptionIcon('heroicon-m-presentation-chart-line')
                 ->color('warning'),
             Stat::make('Tiền trả thưởng VQMM', Number::currency($luckyWheelPayout, 'VND'))
                 ->description('Tổng tiền đã trả từ vòng quay')

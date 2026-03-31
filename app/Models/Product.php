@@ -35,6 +35,7 @@ class Product extends Model
         'slug',
         'content',
         'sell_price',
+        'cost_price',
         'sale_price',
         'meta_title',
         'meta_description',
@@ -52,6 +53,7 @@ class Product extends Model
     {
         return [
             'sell_price' => 'decimal:2',
+            'cost_price' => 'decimal:2',
             'sale_price' => 'decimal:2',
             'type' => 'integer',
             'status' => 'integer',

@@ -82,12 +82,12 @@ class ProductForm
                     ->validationMessages([
                         'required' => 'Trường này không được để trống',
                     ]),
-                TextInput::make('password2')
-                    ->label('Mật khẩu 2')
-                    ->required()
-                    ->validationMessages([
-                        'required' => 'Trường này không được để trống',
-                    ]),
+                // TextInput::make('password2')
+                //     ->label('Mật khẩu 2')
+                //     ->required()
+                //     ->validationMessages([
+                //         'required' => 'Trường này không được để trống',
+                //     ]),
                 RichEditor::make('content')
                     ->label('Nội dung')
                     ->required()
@@ -103,6 +103,11 @@ class ProductForm
                         'required' => 'Trường này không được để trống',
                         'max_length' => 'Trường này không được vượt quá :max ký tự',
                     ]),
+                TextInput::make('cost_price')
+                    ->label('Giá nhập (Chỉ Admin thấy)')
+                    ->numeric()
+                    ->placeholder('Nhập giá nhập kho...')
+                    ->helperText('Dùng để tính toán lợi nhuận.'),
                 TextInput::make('sale_price')
                     ->label('Giá sau giảm giá')
                     ->required()
