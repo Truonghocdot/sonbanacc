@@ -9,6 +9,9 @@
     .categories-swiper {
         padding: 40px 0 !important;
     }
+    .categories-swiper .swiper-wrapper {
+        justify-content: center;
+    }
     .categories-swiper .swiper-button-next,
     .categories-swiper .swiper-button-prev {
         width: 50px !important;
@@ -43,6 +46,10 @@
         background: rgba(20, 20, 20, 0.7);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
+    }
+    .categories-swiper.is-static .swiper-button-next,
+    .categories-swiper.is-static .swiper-button-prev {
+        display: none !important;
     }
 </style>
 @endpush
@@ -448,15 +455,25 @@ $orgSchema = [
         });
 
         // Categories Swiper
+        var categoriesCount = {{ $categories->count() }};
+        var shouldLoopCategories = categoriesCount > 4;
+        var categoriesSwiperRoot = document.querySelector('.categories-swiper');
+
+        if (categoriesSwiperRoot && !shouldLoopCategories) {
+            categoriesSwiperRoot.classList.add('is-static');
+        }
+
         var categoriesSwiper = new Swiper('.categories-swiper', {
             slidesPerView: 4,
             spaceBetween: 16,
-            loop: true,
-            autoplay: {
+            loop: shouldLoopCategories,
+            watchOverflow: true,
+            centerInsufficientSlides: true,
+            autoplay: shouldLoopCategories ? {
                 delay: 3000,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true
-            },
+            } : false,
             navigation: {
                 nextEl: '.categories-next',
                 prevEl: '.categories-prev',
