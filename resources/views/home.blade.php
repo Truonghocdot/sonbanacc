@@ -240,7 +240,8 @@
             </h2>
         </div>
 
-        <!-- Desktop Swiper Carousel -->
+        <!-- Desktop Categories -->
+        @if($categories->count() > 4)
         <div class="hidden lg:block relative">
             <div class="swiper categories-swiper overflow-visible">
                 <div class="swiper-wrapper items-stretch">
@@ -250,9 +251,9 @@
                             <div class="w-full h-56 mb-5 overflow-hidden rounded-xl relative">
                                 <img alt="{{ $category->title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="{{ url('storage/'.$category->image) ?? 'https://via.placeholder.com/400x300' }}" loading="lazy" decoding="async">
                                 <div class="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-80"></div>
-                                
+
                                 <div class="absolute bottom-4 left-0 right-0 px-4">
-                                     <div class="h-1 w-0 group-hover:w-full bg-gold-primary transition-all duration-700 mx-auto"></div>
+                                    <div class="h-1 w-0 group-hover:w-full bg-gold-primary transition-all duration-700 mx-auto"></div>
                                 </div>
                             </div>
                             <div class="px-4 pb-6">
@@ -267,10 +268,28 @@
                     @endforelse
                 </div>
             </div>
-            <!-- Navigation Buttons -->
             <div class="swiper-button-next categories-next"></div>
             <div class="swiper-button-prev categories-prev"></div>
         </div>
+        @else
+        <div class="hidden lg:flex justify-center gap-6">
+            @forelse($categories as $category)
+            <a href="{{ route('categories.show', $category->slug) }}" class="group card-esport p-2 w-full max-w-sm flex flex-col items-center text-center transition-all hover:translate-y-[-10px] hover:border-gold-primary/60 bg-black-surface border-gold-border rounded-2xl shadow-xl hover:shadow-gold-primary/10">
+                <div class="w-full h-56 mb-5 overflow-hidden rounded-xl relative">
+                    <img alt="{{ $category->title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="{{ url('storage/'.$category->image) ?? 'https://via.placeholder.com/400x300' }}" loading="lazy" decoding="async">
+                    <div class="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-80"></div>
+                </div>
+                <div class="px-4 pb-6">
+                    <h3 class="font-black text-xl mb-3 text-white group-hover:text-gold-primary transition-colors uppercase tracking-tight">
+                        {{ $category->title }}
+                    </h3>
+                    <p class="text-text-muted text-sm line-clamp-2 font-medium leading-relaxed">{!! strip_tags($category->description) !!}</p>
+                </div>
+            </a>
+            @empty
+            @endforelse
+        </div>
+        @endif
 
         <!-- Mobile Grid View -->
         <div class="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
@@ -454,36 +473,29 @@ $orgSchema = [
             },
         });
 
-        // Categories Swiper
-        var categoriesCount = {{ $categories->count() }};
-        var shouldLoopCategories = categoriesCount > 4;
+        // Categories Swiper (only when categories > 4 and swiper exists)
         var categoriesSwiperRoot = document.querySelector('.categories-swiper');
-
-        if (categoriesSwiperRoot && !shouldLoopCategories) {
-            categoriesSwiperRoot.classList.add('is-static');
+        if (categoriesSwiperRoot) {
+            new Swiper('.categories-swiper', {
+                slidesPerView: 4,
+                spaceBetween: 16,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                navigation: {
+                    nextEl: '.categories-next',
+                    prevEl: '.categories-prev',
+                },
+                breakpoints: {
+                    320: { slidesPerView: 1.5, spaceBetween: 15 },
+                    640: { slidesPerView: 2.5, spaceBetween: 20 },
+                    1024: { slidesPerView: 4, spaceBetween: 24 }
+                }
+            });
         }
-
-        var categoriesSwiper = new Swiper('.categories-swiper', {
-            slidesPerView: 4,
-            spaceBetween: 16,
-            loop: shouldLoopCategories,
-            watchOverflow: true,
-            centerInsufficientSlides: true,
-            autoplay: shouldLoopCategories ? {
-                delay: 3000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true
-            } : false,
-            navigation: {
-                nextEl: '.categories-next',
-                prevEl: '.categories-prev',
-            },
-            breakpoints: {
-                320: { slidesPerView: 1.5, spaceBetween: 15 },
-                640: { slidesPerView: 2.5, spaceBetween: 20 },
-                1024: { slidesPerView: 4, spaceBetween: 24 }
-            }
-        });
     });
 </script>
 @endpush
