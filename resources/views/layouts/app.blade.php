@@ -80,7 +80,7 @@
             },
             "sameAs": [
                 "https://www.facebook.com/le.vietanh.939173",
-                "https://zalo.me/g/wilgna867"
+                "https://zalo.me/g/srggnce9cbkhfnld1pxr"
             ]
         }
     </script>
@@ -121,13 +121,13 @@
 
         <!-- Floating Action Buttons -->
         <div class="fixed bottom-4 md:bottom-6 right-4 md:right-6 flex flex-col gap-2 md:gap-3 z-50">
-            <a href="https://www.facebook.com/le.vietanh.939173" class="w-10 h-10 md:w-12 md:h-12 bg-black-surface border border-gold-primary/20 text-gold-primary rounded-full flex items-center justify-center hover:scale-110 transition shadow-[0_0_15px_rgba(251,204,5,0.2)] hover:bg-gold-primary hover:text-black group">
+            <a href="https://www.facebook.com/profile.php?id=61582181043488" class="w-10 h-10 md:w-12 md:h-12 bg-black-surface border border-gold-primary/20 text-gold-primary rounded-full flex items-center justify-center hover:scale-110 transition shadow-[0_0_15px_rgba(251,204,5,0.2)] hover:bg-gold-primary hover:text-black group">
                 <span class="material-icons text-xl md:text-2xl">message</span>
             </a>
             <a href="tel:0327182537" class="w-10 h-10 md:w-12 md:h-12 bg-black-surface border border-gold-primary/20 text-gold-primary rounded-full flex items-center justify-center hover:scale-110 transition shadow-[0_0_15px_rgba(251,204,5,0.2)] hover:bg-gold-primary hover:text-black">
                 <span class="material-icons text-xl md:text-2xl">phone</span>
             </a>
-            <a href="https://zalo.me/g/wilgna867" class="w-10 h-10 md:w-12 md:h-12 bg-black-surface border border-gold-primary/20 rounded-full flex items-center justify-center hover:scale-110 transition shadow-[0_0_15px_rgba(251,204,5,0.2)] p-1">
+            <a href="https://zalo.me/g/srggnce9cbkhfnld1pxr" class="w-10 h-10 md:w-12 md:h-12 bg-black-surface border border-gold-primary/20 rounded-full flex items-center justify-center hover:scale-110 transition shadow-[0_0_15px_rgba(251,204,5,0.2)] p-1">
                 <img src="{{ asset('images/zalo.png') }}" alt="Zalo" class="w-full h-full rounded-full grayscale hover:grayscale-0 transition-all" loading="lazy" decoding="async">
             </a>
         </div>

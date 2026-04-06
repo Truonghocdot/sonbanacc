@@ -123,7 +123,7 @@
                             {!! $product->content !!}
                         </div>
                         <div class="mt-8 pt-6 border-t border-gold-border/40">
-                            <a href="https://zalo.me/g/wilgna867" class="text-gold-primary font-black hover:text-white transition-all text-sm flex items-center gap-3 group">
+                            <a href="https://zalo.me/g/srggnce9cbkhfnld1pxr" class="text-gold-primary font-black hover:text-white transition-all text-sm flex items-center gap-3 group">
                                 <span class="material-icons text-lg group-hover:rotate-12 transition-transform">group</span> THAM GIA CỘNG ĐỒNG NHẬN QUÀ VIP
                             </a>
                         </div>

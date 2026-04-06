@@ -9,7 +9,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 
 #[Layout('layouts.app')]
-#[Title('Hứng Dừa Đón Quà - Summer Surfing')]
+#[Title('Vòng Quay May Mắn')]
 class LuckyWheelPage extends Component
 {
     public $prizeAmount = null;
@@ -38,8 +38,8 @@ class LuckyWheelPage extends Component
         $this->prizeLabel = $data['prize_label'];
         $this->spinning = true;
 
-        // Dispatch browser event for game animation
-        $this->dispatch('start-surf-game', [
+        // Dispatch browser event for wheel animation
+        $this->dispatch('start-lucky-wheel', [
             'prizeAmount' => $this->prizeAmount
         ]);
     }

@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 
-                <a href="https://www.facebook.com/le.vietanh.939173" target="_blank" class="flex items-center gap-3 bg-white/5 hover:bg-gold-primary hover:text-black hover:fill-black text-white px-6 py-2 rounded-full border border-gold-border/40 transition-all group/fb">
+                <a href="https://www.facebook.com/profile.php?id=61582181043488" target="_blank" class="flex items-center gap-3 bg-white/5 hover:bg-gold-primary hover:text-black hover:fill-black text-white px-6 py-2 rounded-full border border-gold-border/40 transition-all group/fb">
                     <span class="material-icons text-xl group-hover/fb:translate-y-[-2px] transition-transform">facebook</span>
                     <span class="font-black text-xs uppercase tracking-widest italic">Sơn Bán Acc</span>
                 </a>
@@ -236,10 +236,10 @@
         <!-- Desktop Swiper Carousel -->
         <div class="hidden lg:block relative">
             <div class="swiper categories-swiper overflow-visible">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper items-stretch">
                     @forelse($categories as $category)
-                    <div class="swiper-slide h-auto">
-                        <a href="{{ route('categories.show', $category->slug) }}" class="group card-esport p-2 flex flex-col items-center text-center transition-all hover:translate-y-[-10px] hover:border-gold-primary/60 h-full bg-black-surface border-gold-border rounded-2xl shadow-xl hover:shadow-gold-primary/10">
+                    <div class="swiper-slide h-auto flex justify-center">
+                        <a href="{{ route('categories.show', $category->slug) }}" class="group card-esport p-2 flex flex-col items-center text-center transition-all hover:translate-y-[-10px] hover:border-gold-primary/60 h-full w-full max-w-sm bg-black-surface border-gold-border rounded-2xl shadow-xl hover:shadow-gold-primary/10">
                             <div class="w-full h-56 mb-5 overflow-hidden rounded-xl relative">
                                 <img alt="{{ $category->title }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="{{ url('storage/'.$category->image) ?? 'https://via.placeholder.com/400x300' }}" loading="lazy" decoding="async">
                                 <div class="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-80"></div>
@@ -266,9 +266,9 @@
         </div>
 
         <!-- Mobile Grid View -->
-        <div class="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
             @forelse($categories as $category)
-            <a href="{{ route('categories.show', $category->slug) }}" class="group card-esport p-2 flex flex-col items-center text-center transition-all active:scale-[0.98] bg-black-surface rounded-2xl border-gold-border">
+            <a href="{{ route('categories.show', $category->slug) }}" class="group card-esport p-2 w-full max-w-sm flex flex-col items-center text-center transition-all active:scale-[0.98] bg-black-surface rounded-2xl border-gold-border">
                 <div class="w-full h-44 mb-4 overflow-hidden rounded-xl relative">
                     <img alt="{{ $category->title }}" class="w-full h-full object-cover" src="{{ url('storage/'.$category->image) ?? 'https://via.placeholder.com/96' }}" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-linear-to-t from-black to-transparent opacity-60"></div>

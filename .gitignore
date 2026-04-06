@@ -22,3 +22,8 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+.vscode
+.phpstorm.meta.php
+.phpunit.result.cache
+.phpactor.json
+.codex
